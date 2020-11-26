@@ -1,15 +1,12 @@
 name: Kukoon
 version: 1.7.0
-description: "Kukoon is built using the popular **Kukoon** Framework"
+description: "Kukoon cleanup neue Webseite"
 icon: bold
 author:
-  name: Team Grav
-  email: devs@getgrav.org
-  url: http://getgrav.org
-homepage: https://github.com/getgrav/grav-theme-kukoon
-demo: http://demo.getgrav.org/kukoon-skeleton/
-keywords: kukoon, theme, framework
-bugs: https://github.com/getgrav/grav-theme-kukoon/issues
+  name: Martin/Geno
+  email: geno+dev@fireorbit.de
+  url: http://fireorbit.de
+keywords: kukoon
 license: MIT
 
 dependencies:
@@ -29,3 +26,37 @@ form:
           0: Disabled
         validate:
           type: bool
+    menu.enabled:
+      type: toggle
+      label: Startseite only
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    menu.extras:
+      type: list
+      label: Extra Menu
+      fields:
+        .text:
+          type: text
+          label: Text
+        .url:
+          type: text
+          label: URL
+    footers:
+      type: list
+      label: Footer
+      fields:
+        .box:
+          type: editor
+          label: Box
+    menu.bottom:
+      type: list
+      label: Button Menu
+      fields:
+        .page:
+          type: pages
+          label: Page
