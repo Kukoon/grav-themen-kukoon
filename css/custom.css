@@ -21,3 +21,14 @@ body {
 .container {
 	width: 100%
 }
+a {
+	color: #770702;
+	text-decoration: none;
+}
+.navbar {
+	background-color: #770702;
+	color: #ddd;
+}
+.navbar a {
+	color: #ddd;
+}
