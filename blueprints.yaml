@@ -16,6 +16,34 @@ dependencies:
 form:
   validation: strict
   fields:
+
+    menu.enabled:
+      type: toggle
+      label: Menu Top
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    footers:
+      type: list
+      label: Footer
+      fields:
+        .box:
+          type: editor
+          label: Box
+
+    menu.bottom:
+      type: list
+      label: Menu Footer
+      fields:
+        .page:
+          type: pages
+          label: Page
+
     production-mode:
       type: toggle
       label: Production mode
@@ -38,30 +66,3 @@ form:
         grid-xl: Extra Large
         grid-lg: Large
         grid-md: Medium
-
-    menu.enabled:
-      type: toggle
-      label: Startseite only
-      highlight: 1
-      default: 1
-      options:
-        1: PLUGIN_ADMIN.ENABLED
-        0: PLUGIN_ADMIN.DISABLED
-      validate:
-        type: bool
-
-    menu.bottom:
-      type: list
-      label: Button Menu
-      fields:
-        .page:
-          type: pages
-          label: Page
-
-    footers:
-      type: list
-      label: Footer
-      fields:
-        .box:
-          type: editor
-          label: Box
