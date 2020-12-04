@@ -1,56 +1,63 @@
-{% embed 'partials/base.html.twig' %}
+{% extends 'partials/base.html.twig' %}
+{% set blog_image = page.media.images[page.header.hero_image] ?: page.media.images|first %}
+{% set collection = page.collection() %}
+{% set blog = page.find(header_var('blog_url')|defined(theme_var('blog-page'))) %}
+{% set show_breadcrumbs = header_var('show_breadcrumbs', [page, blog])|defined(true) %}
+{% set show_sidebar = header_var('show_sidebar', [page, blog])|defined(true)  %}
+{% set show_pagination = header_var('show_pagination', [page, blog])|defined(true) %}
 
-	{% set collection = page.collection() %}
-	{% set base_url = page.url %}
-    {% set feed_url = base_url %}
+{% block stylesheets %}
+    {% do assets.addCss('theme://css/bricklayer.css') %}
+    {{ parent() }}
+{% endblock %}
 
-    {% if base_url == '/' %}
-        {% set base_url = '' %}
-    {% endif %}
+{% block javascripts %}
+    {{ parent() }}
+    {% do assets.add('theme://js/bricklayer.min.js') %}
+    {% do assets.add('theme://js/scopedQuerySelectorShim.min.js') %}
+{% endblock %}
 
-    {% if base_url == base_url_relative %}
-        {% set feed_url = base_url~'/'~page.slug %}
-    {% endif  %}
 
-	{% block content %}
-        <div class="header">
-            <div class="container">
-                {{ page.content }}
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 blog-main">
+{% block hero %}
+    {% include 'partials/hero.html.twig' with {id: 'blog-hero', content: page.content, hero_image: blog_image} %}
+{% endblock %}
 
-                    {% if config.plugins.breadcrumbs.enabled %}
-                        {% include 'partials/breadcrumbs.html.twig' %}
-                    {% endif %}
+{% block body %}
+    <section id="body-wrapper" class="section blog-listing">
+        <section class="container {{ grid_size }}">
 
-                    {% for child in collection %}
-                        {% include 'partials/blog_item.html.twig' with {'page':child, 'truncate':true} %}
-                    {% endfor %}
+        {% if show_breadcrumbs and config.plugins.breadcrumbs.enabled %}
+            {% include 'partials/breadcrumbs.html.twig' %}
+        {% endif %}
 
+        {% embed 'partials/layout.html.twig' with {blog: page} %}
+            {% block item %}
+
+                <div class="bricklayer">
+                {% for child in collection %}
+                    {% include 'partials/blog-list-item.html.twig' with {blog: page, page: child} %}
+                {% endfor %}
                 </div>
 
-        		<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-       				{% include 'partials/sidebar.html.twig' with {'blog':page} %}
-        		</div>
-            </div>
-        </div>
-	{% endblock %}
+                {% if show_pagination and config.plugins.pagination.enabled and collection.params.pagination %}
+                    <div id="listing-footer">
+                        {% include 'partials/pagination.html.twig' with {base_url: page.url, pagination: collection.params.pagination} %}
+                    </div>
+                {% endif %}
 
-	{% block pagination %}
-        {% if config.plugins.pagination.enabled and collection.params.pagination %}
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 text-center">
-                    {% include 'partials/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
-                </div>
-            </div>
-        </div>
-	    {% endif %}
-	{% endblock %}
+            {% endblock %}
 
-{% endembed %}
+            {% block sidebar %}
+                {% include 'partials/sidebar.html.twig' %}
+            {% endblock %}
+        {% endembed %}
+        </section>
+    </section>
+    <script>
+        //Bricklayer
+        var bricklayer = new Bricklayer(document.querySelector('.bricklayer'))
+    </script>
+{% endblock %}
+
 
 

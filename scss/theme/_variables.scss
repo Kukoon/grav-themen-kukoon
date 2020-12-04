@@ -1,21 +1,40 @@
-//colors
-$core-accent:   #770702;
-$secondary-accent: #428e92;
-$footer-bg:		#f5f5f5;
-$border-color: 	#f0f0f0;
-$header-bg:     $secondary-accent;
-$header-text:   lighten($header-bg, 55%);
-$header-title:  #f0f0f0;
-$text-bg:           #f0f0f0;
-$text-text:           #666666;
+// Spectre Overrides
+$primary-color: #770702 !default;
+$secondary-color: #428e92 !default;
+$dark-color: #000 !default;
+$light-color: #fff !default;
+$gray-color: #ddd !default;
+$gray-color-dark: #ddd !default;
+$border-color: #ddd !default;
+$bg-color: #fff !default;
+$body-font-color: #000 !default;
 
-//spacing
-$header-height: 50px;
-$padding-vert: 30px;
-$padding-horiz: 30px;
-$content-padding: 15px;
-$core-font-size: 14px;
+// Layout
+$horiz-padding: 1rem;
+$vert-padding: 2rem 0 2rem;
 
-$border-radius: 3px;
+// Fonts
+$base-font-family: Overpass;
+$min-responsive-font-size: 16px;
 
+// Header
+$header-height-large: 4rem;
+$header-height-small: 2.3rem;
+$header-color-dark: #222;
+$header-text-light: $light-color;
+$header-text-dark: $dark-color;
 
+// Dropdown Menu
+$dropmenu-bg: $light-color;
+$dropmenu-hover-text: $primary-color;
+$dropmenu-horiz-padding: 20px;
+$dropmenu-vert-padding: 7px;
+$dropmenu-child-padding: 10px;
+$dropmenu-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+
+// Mobile Menu
+$mobile-color-main: $light-color;
+$mobile-color-active: #FFF;
+$mobile-color-link: #FFF;
+$mobile-button-height: 24px;
+$mobile-button-width: 28px;

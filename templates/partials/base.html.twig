@@ -1,13 +1,16 @@
-{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+{% set body_classes = body_class(['header-fixed', 'header-animated', 'header-dark', 'header-transparent', 'sticky-footer']) %}
+{% set grid_size = theme_var('grid-size') %}
+{% set compress = theme_var('production-mode') ? '.min.css' : '.css' %}
+{% use 'blocks/base.html.twig' %}
 <!DOCTYPE html>
 <html lang="{{ grav.language.getActive ?: grav.config.site.default_lang }}">
 	<head>
-		{% block head %}
+		{% block head deferred %}
 			<meta charset="utf-8" />
 			<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 			<meta name="viewport" content="width=device-width, initial-scale=1" />
 			{% include 'partials/metadata.html.twig' %}
-			<title>{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
+			<title>{% if page.title %}{{ page.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
 
 			<link rel="apple-touch-icon" sizes="57x57" href="{{ url('theme://icon/apple-icon-57x57.png') }}">
 			<link rel="apple-touch-icon" sizes="114x114" href="{{ url('theme://icon/apple-icon-114x114.png') }}">
@@ -27,58 +30,105 @@
 			<meta name="msapplication-TileColor" content="#ffffff">
 			<meta name="msapplication-config" content="{{ url('theme://icon/browserconfig.xml') }}">
 			<meta name="theme-color" content="#ffffff">
-		
-			{% block stylesheets %}
-				{% do assets.add('theme://fonts/overpass.css',101) %}
-				{% do assets.add('theme://css/pure-min.css',100) %}
-				{% do assets.add('theme://css/grids-responsive-min.css',99) %}
-				{% do assets.add('theme://css/custom.css',10) %}
-			{% endblock %}
 
-			{% block assets deferred %}
-				{{ assets.css()|raw }}
-				{{ assets.js()|raw }}
-			{% endblock %}
-		{% endblock head%}
-	</head>
+			<link rel="canonical" href="{{ page.url(true, true) }}" />
+		{% endblock head %}
 
-	<body class="{% block body_classes %}{{ page.header.body_classes }}{% endblock %}">
-		{% if config.plugins.langswitcher.enabled %}
-			{% include 'partials/langswitcher.html.twig' %}
-		{% endif %}
-		{% block header_navigation %}
-			{% include 'partials/navigation.html.twig' %}
+		{% block stylesheets %}
+			{% do assets.addCss('theme://fonts/overpass.css') %}
+			{% do assets.addCss('theme://css/spectre'~compress) %}
+			{% if theme_var('spectre.exp') %}{% do assets.addCss('theme://css/spectre-exp'~compress)  %}{% endif %}
+			{% if theme_var('spectre.icons') %}{%  do assets.addCss('theme://css/spectre-icons'~compress) %}{% endif %}
+			{% do assets.addCss('theme://css/theme'~compress) %}
 		{% endblock %}
 
-		<div class="container mt-5 pt-5 pb-3">
-			{% block content %}{% endblock %}
-			{% block pagination %}{% endblock %}
+		{% block javascripts %}
+			{% do assets.addJs('jquery', 101) %}
+			{% do assets.addJs('theme://js/jquery.treemenu.js', {group:'bottom'}) %}
+			{% do assets.addJs('theme://js/site.js', {group:'bottom'}) %}
+		{% endblock %}
+
+		{% block assets deferred %}
+			{{ assets.css()|raw }}
+			{{ assets.js()|raw }}
+		{% endblock %}
+	</head>
+	<body id="top" class="{% block body_classes %}{{ body_classes }}{% endblock %}">
+		<div id="page-wrapper">
+			{% block header %}
+				<section id="header" class="section bg-primary">
+					<section class="container {{ grid_size }}">
+						<nav class="navbar">
+							<section class="navbar-section logo">
+								<a href="{{ home_url }}" class="navbar-brand mr-10">
+									<img src="{{ url('theme://images/logo.png') }}" alt="Kukoon Logo" />
+								</a>
+							</section>
+							<section class="navbar-section desktop-menu">
+								<nav class="dropmenu animated">
+									{% block header_navigation %}
+										{% if theme_var('menu.enabled') %}
+											{% include 'partials/navigation.html.twig' %}
+										{% endif %}
+									{% endblock %}
+								</nav>
+
+								{% if config.plugins.login.enabled and grav.user.username %}
+									<span class="login-status-wrapper"><i class="fa fa-user"></i> {% include 'partials/login-status.html.twig' %}</span>
+								{% endif %}
+							</section>
+						</nav>
+					</section>
+				</section>
+				{% if theme_var('menu.enabled') %}
+					<div class="mobile-menu">
+						<div class="button_container" id="toggle">
+							<span class="top"></span>
+							<span class="middle"></span>
+							<span class="bottom"></span>
+						</div>
+					</div>
+				{% endif %}
+			{% endblock %}
+
+			{% block hero %}{% endblock %}
+
+			<section id="start">
+				{% block body %}
+					<section id="body-wrapper" class="section">
+						<section class="container {{ grid_size }}">
+							{% block messages %}
+								{% include 'partials/messages.html.twig' ignore missing %}
+							{% endblock %}
+							{{ block('content_surround') }}
+						</section>
+					</section>
+				{% endblock %}
+			</section>
+
 		</div>
 
-		<div class="footer">
-			<div class="container">
-				<div class="row">
-					{% for footer in theme_config.footers %}
-						<div class="col-md">
-							{% markdown %}
-								{{ footer.box }}
-							{% endmarkdown %}
+		{% block footer %}
+			{% include 'partials/footer.html.twig' %}
+		{% endblock %}
+
+		{% block mobile %}
+			<div class="mobile-container">
+				{% if theme_var('menu.enabled') %}
+					<div class="overlay" id="overlay">
+						<div class="mobile-logo">
+							<a href="{{ home_url }}" class="navbar-brand mr-10">
+								<img src="{{ url('theme://images/logo.png') }}" alt="Kukoon Logo" />
+							</a>
 						</div>
-					{% endfor %}
-				</div>
+						<nav class="overlay-menu">
+							{% include 'partials/navigation.html.twig' with {tree: true} %}
+						</nav>
+					</div>
+				{% endif %}
 			</div>
-		</div>
-		<nav class="navbar pure-menu pure-menu-horizontal">
-			<div class="container justify-content-md-center">
-				<div class="navbar-nav">
-					{% for p in theme_config.menu.bottom %}
-						{% set page = pages.find(p.page) %}
-						{% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
-						<a class="nav-link {{ current_page }}" href="{{ page.url }}">{{ page.menu }}</a>
-					{% endfor %}
-				</div>
-			</div>
-		</nav>
+		{% endblock %}
+
 		{% block bottom %}
 			{{ assets.js('bottom')|raw }}
 		{% endblock %}

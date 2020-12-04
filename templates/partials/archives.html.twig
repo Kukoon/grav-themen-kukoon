@@ -1,7 +1,13 @@
-<ul class="list-group">
-{% set month = "now"|date("m/d/Y") %}
-{% for j in range(1, 12) %}
-	{% set month = month|date_modify('-1 month') %}
-    <li class="list-group-item"><a href="{{ base_url }}/month:{{ month|date('M_Y')|lower|e('url') }}">{{ month|date('F Y') }}</a></li>
+<ul class="archives">
+
+{% for month,items in archives_data %}
+    <li>
+    	<a href="{{ base_url }}/{{ config.plugins.archives.taxonomy_names.month }}{{ config.system.param_sep }}{{ month|date('M_Y')|lower|e('url') }}">
+        {% if archives_show_count %}
+        <span class="label label-rounded label-primary">{{ items|length }}</span>
+        {% endif %}
+          <span class="archive_date">{{ month|date(config.plugins.archives.date_display_format) }} </span>
+        </a>
+    </li>
 {% endfor %}
 </ul>

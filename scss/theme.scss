@@ -1,22 +1,21 @@
-// REQUIRED DEPENDENCIES - DO NOT CHANGE
+// Core variables and mixins
+@import 'theme/variables';
+@import 'spectre/variables';
+@import 'spectre/mixins';
 
-// Load Third Party Libraries
-@import "vendor/bourbon/bourbon";
+@import 'theme/fonts';
+@import 'theme/mixins';
+@import 'theme/framework';
+@import 'theme/typography';
+@import 'theme/forms';
+@import 'theme/mobile';
+@import 'theme/animation';
 
-@import "theme/mixins/breakpoints";
-//-------------------------------------------
+@import 'theme/header';
+@import 'theme/footer';
+@import 'theme/menu';
 
-// THEME COMPONENTS
-@import "theme/variables";
+// Extra Skeleton Styling
+@import 'theme/blog';
+@import 'theme/onepage';
 
-@import "theme/typography";
-
-@import "theme/default";
-
-@import "theme/blog";
-
-@import "theme/fixes";
-
-@import "theme/modular/all";
-
-@import "theme/login";

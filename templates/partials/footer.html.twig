@@ -1,0 +1,29 @@
+<section id="footer" class="bg-secondary">
+		<div class="container {{ grid_size }}">
+			<div class="columns">
+				{% for footer in theme_var('footers') %}
+					<div class="column col-lg-auto">
+					{% markdown %}
+						{{ footer.box }}
+					{% endmarkdown %}
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+<section class="section footer-menu">
+	<section class="container {{ grid_size }}">
+		<nav class="navbar">
+			<section class="navbar-section"></section>
+			<section class="navbar-center">
+				{% for p in theme_var('menu.bottom')  %}
+					{% set page = pages.find(p.page) %}
+					{% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
+					<a class="btn btn-link {{ current_page }}" href="{{ page.url }}">{{ page.menu }}</a>
+				{% endfor %}
+			</section>
+			<section class="navbar-section"></section>
+		</nav>
+	</section>
+</section>

@@ -16,16 +16,29 @@ dependencies:
 form:
   validation: strict
   fields:
-    dropdown.enabled:
-        type: toggle
-        label: Dropdown in navbar
-        highlight: 1
-        default: 1
-        options:
-          1: Enabled
-          0: Disabled
-        validate:
-          type: bool
+    production-mode:
+      type: toggle
+      label: Production mode
+      help: When enabled, Quark will render with minified CSS
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    grid-size:
+      type: select
+      label: Grid size
+      help: The maximum width of the theme
+      size: small
+      options:
+        '': None (full width)
+        grid-xl: Extra Large
+        grid-lg: Large
+        grid-md: Medium
+
     menu.enabled:
       type: toggle
       label: Startseite only
@@ -36,23 +49,7 @@ form:
         0: PLUGIN_ADMIN.DISABLED
       validate:
         type: bool
-    menu.extras:
-      type: list
-      label: Extra Menu
-      fields:
-        .text:
-          type: text
-          label: Text
-        .url:
-          type: text
-          label: URL
-    footers:
-      type: list
-      label: Footer
-      fields:
-        .box:
-          type: editor
-          label: Box
+
     menu.bottom:
       type: list
       label: Button Menu
@@ -60,3 +57,11 @@ form:
         .page:
           type: pages
           label: Page
+
+    footers:
+      type: list
+      label: Footer
+      fields:
+        .box:
+          type: editor
+          label: Box

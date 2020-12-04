@@ -1,29 +1,26 @@
+{% extends "forms/field.html.twig" %}
+
+{% set originalValue = value %}
 {% set value = (value is null ? field.default : value) %}
 
-<div class="form-field">
-    <label class="control-label col-sm-2">
-            {% if field.help %}
-            <span class="tooltip" data-asTooltip-position="w" title="{{ field.help|e }}">{{ field.label|default(field.name|capitalize)|t }}</span>
-            {% else %}
-            {{ field.label|default(field.name|capitalize)|t }}
-            {% endif %}
-            {{ field.validate.required in ['on', 'true', 1] ? '<span class="required">*</span>' }}
-    </label>
-    <div class="col-sm-10">
-        {% for key, text in field.options %}
-        {% set id = "radio_" ~ field.name ~ key %}
-        <div class="radio">
-            <label>
-                <input type="radio"
-                       value="{{ key }}"
-                       id="{{ id }}"
-                       name="{{ (scope ~ field.name)|fieldName }}"
-                       {% if key == value %}checked="checked" {% endif %}
-                       {% if field.validate.required in ['on', 'true', 1] %}required="required"{% endif %}
-                />
-                {{ text }}
+{% block input %}
+    {% for key, text in field.options %}
+        {% set id = field.id|default(field.name) ~ '-' ~ key %}
+
+        <div class="radio {{ form_field_wrapper_classes }} {{ field.wrapper_classes }}">
+            <label class="{{ form_field_radio_classes }}" for="{{ id|e }}">
+            <input type="radio"
+                   value="{{ key|e }}"
+                   id="{{ id|e }}"
+                   name="{{ (scope ~ field.name)|fieldName }}"
+                   {% if field.classes is defined %}class="{{ field.classes }}" {% endif %}
+                   {% if key == value %}checked="checked" {% endif %}
+                   {% if field.disabled or isDisabledToggleable %}disabled="disabled"{% endif %}
+                   {% if required %}required="required"{% endif %}
+            />
+            <i class="form-icon"></i>
+            {% if grav.twig.twig.filters['tu'] is defined %}{{ text|tu|raw }}{% else %}{{ text|t|raw }}{% endif %}
             </label>
         </div>
-        {% endfor %}
-    </div>
-</div>
+    {% endfor %}
+{% endblock %}
