@@ -30,6 +30,8 @@
             {% include 'partials/breadcrumbs.html.twig' %}
         {% endif %}
 
+        <h1 class="text-primary">{{ page.title }}</h1>
+
         {% embed 'partials/layout.html.twig' with {blog: page} %}
             {% block item %}
 

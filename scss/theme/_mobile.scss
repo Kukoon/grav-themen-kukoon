@@ -116,6 +116,30 @@
     margin: 0 auto;
     text-align: center;
   }
+  a {
+    &[href*="//"] {
+      &:before,
+      &:after {
+        content: '';
+        border: 1px solid $primary-color-light;
+        border-radius: 5em 0 0 5em;
+        border-right: 0;
+        height: .5em;
+        width: .75em;
+        position: relative;
+        right: 10%;
+        float: right;
+        margin-top: 6px;
+	margin-right: - (2 *$dropmenu-child-padding);
+      }
+      &:after {
+        transform: translate(-30%,-55%) rotate(135deg);
+      }
+      &:before {
+        transform: translate(-70%,-45%) rotate(-45deg);
+      }
+    }
+  }
 }
 
 .overlay-menu {
