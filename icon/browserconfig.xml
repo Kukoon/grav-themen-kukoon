@@ -2,9 +2,7 @@
 <browserconfig>
     <msapplication>
         <tile>
-		<square70x70logo src="/user/themes/kukoon/icon/mstile-70x70.png"/>
-		<square150x150logo src="/user/themes/kukoon/icon/mstile-150x150.png"/>
-		<square310x310logo src="/user/themes/kukoon/icon/mstile-310x310.png"/>
+            <square150x150logo src="/user/themes/kukoon/icon/mstile-150x150.png"/>
             <TileColor>#ffffff</TileColor>
         </tile>
     </msapplication>
