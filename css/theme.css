@@ -458,8 +458,18 @@ form {
     #header .navbar-section.desktop-menu {
       display: none; } }
   #header .logo svg, #header .logo img {
+    height: 128px;
+    display: inherit;
+    background: #770702;
+    position: absolute;
+    top: 0px;
+    padding: 10px;
+    border-radius: 8px;
+    z-index: 99999; }
+  #header.scrolled .logo svg, #header.scrolled .logo img {
     height: 42px;
-    display: inherit; }
+    padding: 0px;
+    border-radius: 0px; }
   #header .dropmenu ul ul {
     background-color: #770702; }
   .header-fixed #header {

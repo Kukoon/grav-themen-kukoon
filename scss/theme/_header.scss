@@ -33,10 +33,23 @@
   }
   .logo {
     svg, img {
-      height: 42px;
+      height: 128px;
       display: inherit;
       @extend .default-animation;
+      background: $primary-color;
+      position: absolute;
+      top: 0px;
+      padding: 10px;
+      border-radius: 8px;
+      z-index: 99999;
     }
+  }
+  &.scrolled .logo {
+    svg, img {
+      height: 42px;
+      padding: 0px;
+      border-radius: 0px;
+     }
   }
   .dropmenu ul ul {
 	  background-color: $primary-color;
