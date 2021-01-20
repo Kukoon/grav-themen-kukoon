@@ -107,11 +107,6 @@
 			<div class="mobile-container">
 				{% if theme_var('menu.enabled') %}
 					<div class="overlay" id="overlay">
-						<div class="mobile-logo">
-							<a href="{{ home_url }}" class="navbar-brand mr-10">
-								<img src="{{ url('theme://images/logo.png') }}" alt="Kukoon Logo" />
-							</a>
-						</div>
 						<nav class="overlay-menu">
 							{% include 'partials/navigation.html.twig' with {tree: true} %}
 						</nav>

@@ -44,27 +44,13 @@
           }
         }
 
-        &[href*="//"] {
-          &:before,
-          &:after {
-            content: '';
-            border: 1px solid currentColor;
-            border-radius: 5em 0 0 5em;
-            border-right: 0;
-            height: .4em;
-            width: .6em;
-            position: relative;
-            right: 0px;
-            float: right;
-            margin-top: 6px;
-            margin-right: - (2 *$dropmenu-child-padding);
-          }
-	  &:after {
-            transform: translate(-30%,-55%) rotate(135deg);
-	  }
-	  &:before {
-            transform: translate(-70%,-45%) rotate(-45deg);
-	  }
+        &[href*="//"]:after {
+            content: "";
+	    background-image: url('../images/link.png');
+	    background-size: 16px 16px;
+	    display: inline-block;
+	    width: 16px;
+	    height: 16px;
 	}
       }
 

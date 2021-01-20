@@ -40,8 +40,8 @@
       position: absolute;
       top: 0px;
       padding: 10px;
-      border-radius: 8px;
-      z-index: 99999;
+      border-radius: 0 0 8px 8px;
+      z-index: 99;
     }
   }
   &.scrolled .logo {

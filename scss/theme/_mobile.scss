@@ -8,19 +8,6 @@
   z-index: 2;
 }
 
-.mobile-logo {
-  svg, img {
-    height: 42px;
-    margin-top: .7rem;
-    margin-left: 1.4rem;
-
-    path {
-      fill: $light-color;
-    }
-
-  }
-}
-
 // Hamburger Menu
 .mobile-menu {
 
@@ -103,6 +90,8 @@
   opacity: 0;
   visibility: hidden;
   transition: opacity .35s, visibility .35s, height .35s;
+  padding-top: 128px; // logo size
+  font-size: 2rem;
 
   &.open {
     opacity: .95;
@@ -116,34 +105,18 @@
     margin: 0 auto;
     text-align: center;
   }
-  a {
-    &[href*="//"] {
-      &:before,
-      &:after {
-        content: '';
-        border: 1px solid $primary-color-light;
-        border-radius: 5em 0 0 5em;
-        border-right: 0;
-        height: .5em;
-        width: .75em;
-        position: relative;
-        right: 10%;
-        float: right;
-        margin-top: 6px;
-	margin-right: - (2 *$dropmenu-child-padding);
-      }
-      &:after {
-        transform: translate(-30%,-55%) rotate(135deg);
-      }
-      &:before {
-        transform: translate(-70%,-45%) rotate(-45deg);
-      }
-    }
+  a[href*="//"]::after {
+    content: "";
+    background-image: url("../images/link.png");
+    background-size: 16px 16px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
   }
 }
 
 .overlay-menu {
-  height: calc(100% - 90px);
+  height: 100%;
   overflow-y: scroll;
 
   & > .tree {
@@ -151,6 +124,7 @@
   }
   .menu {
     background-color: inherit;
+    margin-left: 1rem;
   }
 }
 
