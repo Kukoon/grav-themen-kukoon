@@ -10,7 +10,6 @@ keywords: kukoon
 license: MIT
 
 dependencies:
-  - { name: kukoonper }
   - { name: grav, version: '>=1.5.10' }
 
 form:
