@@ -721,4 +721,10 @@ ul.pagination {
   .event-item .card {
     height: 100%; }
 
+.event-article {
+  margin-top: 2rem; }
+
+time {
+  color: #770702; }
+
 /*# sourceMappingURL=theme.css.map */

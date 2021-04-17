@@ -17,11 +17,6 @@
     {% do assets.add('theme://js/scopedQuerySelectorShim.min.js') %}
 {% endblock %}
 
-
-{% block hero %}
-    {% include 'partials/hero.html.twig' with {id: 'blog-hero', content: page.content, hero_image: blog_image} %}
-{% endblock %}
-
 {% block body %}
     <section id="body-wrapper" class="section blog-listing">
         <section class="container {{ grid_size }}">
@@ -31,6 +26,8 @@
         {% endif %}
 
         <h1 class="text-primary">{{ page.title }}</h1>
+
+	{{ page.content }}
 
         {% embed 'partials/layout.html.twig' with {blog: page} %}
             {% block item %}

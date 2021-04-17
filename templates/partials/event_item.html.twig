@@ -3,30 +3,27 @@
 	<div class="card">
 		{% if image != null %}
 			<div class="card-image">
-				{{ image.cropZoom(900,506).html(page.title, "Bild von Veranstaltung: ". page.title, "img-responsive") }}
+				{{ image.cropZoom(900,506).html("Veranstaltung: "~page.title, page.title, "img-responsive") }}
 			</div>
 		{% endif %}
 		<div class="card-header">
-			{% if page.taxonomy.category and config.plugins.events.event_sidebar.enable_categories %}
-				{% for category in page.taxonomy.category %}
-					<a href="{{ event.url|rtrim('/') }}/category{{ config.system.param_sep }}{{ category }}">
-						<span class="chip">
-							{{ category }}
-						</span>
-					</a>
-				{% endfor %}
-			{% endif %}
+			{% include 'partials/event/categories.html.twig' %}
 			<div class="card-title h5"><a href="{{ page.url }}">{{ page.title}}</a></div>
 		</div>
 		<div class="card-body">
 			{% set category = page.taxonomy.category|first %}
 			<a href="{{ event.url|rtrim('/') }}/category{{ config.system.param_sep }}{{ category }}">
-				<img src="/user/themes/kukoon/images/category/{{ category }}.jpg" style="height: 64px;" />
+				<img src="/user/themes/kukoon/images/category/{{ category }}.jpg" alt="{{ category }}" style="height: 64px;" />
 			</a>
 			<div class="float-right text-right">
-				<div>{{ page.header.event.admission|dateTranslate(config.plugins.events.event_item.date) }}</div>
-				<div>Einlass: {{ page.header.event.admission|dateTranslate(config.plugins.events.event_item.time) }}</div>
-				<div>Eintritt: {{ page.header.event.ticket }}</div>
+				<div>{{ page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) }}</div>
+				<div>
+					Einlass:
+					<time datetime="{{ page.header.event.doors_open|date("c") }}">
+						{{ page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.time) }}
+					</time>
+				</div>
+				{% include 'partials/event/ticket.html.twig' %}
 			</div>
 		</div>
 	</div>

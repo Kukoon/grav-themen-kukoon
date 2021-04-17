@@ -7,31 +7,41 @@
 
 <article class="event-article">
 	<header class="event-header">
-		{% if page.taxonomy.category and config.plugins.events.event_sidebar.enable_categories %}
-			<div>
-				{% for category in page.taxonomy.category %}
-					<a href="{{ event.url|rtrim('/') }}/category{{ config.system.param_sep }}{{ category }}">
-						<span class="chip">{{ category }}</span>
-					</a>
-				{% endfor %}
-			</div>
-		{% endif %}
-		<h2 class="event-title">{{ page.title }}</h2>
+		{% include 'partials/event/categories.html.twig' %}
+		<h1 class="event-title">{{ page.title }}</h1>
+		<div>{{ page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) }}</div>
+		<div>
+			Einlass:
+			<time datetime="{{ page.header.event.doors_open|date("c") }}">
+				{{ page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.time) }}
+			</time>
+		</div>
+		<div>
+			Beginn:
+			<time datetime="{{ page.header.event.start|date("c") }}">
+				{% if page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) != page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) %}
+					{{ page.header.event.start|dateTranslate(config.plugins.events.event_item.date) }}
+				{% endif %}
+				{{ page.header.event.start|dateTranslate(config.plugins.events.event_item.time) }}
+			</time>
+		</div>
+		<div>
+			Ende:
+			<time datetime="{{ page.header.event.end|date("c") }}">
+				{% if page.header.event.start|dateTranslate(config.plugins.events.event_item.date) != page.header.event.end|dateTranslate(config.plugins.events.event_item.date) %}
+					{{ page.header.event.end|dateTranslate(config.plugins.events.event_item.date) }}
+				{% endif %}
+				{{ page.header.event.end|dateTranslate(config.plugins.events.event_item.time) }}
+			</time>
+		</div>
+		{% include 'partials/event/ticket.html.twig' %}
 		{% if (config.plugins.events.event_meta.display_location) and (page.header.event.location is not empty) %}
 			<h3 class="event-location"><span class="location-pin"></span>{{ page.header.event.location }}</h3>
 		{% endif %}
-		<time class="event-datetime" datetime="{{ page.date|date("c") }}">
-			<span class="event-day">{{ page.header.event.start|dateTranslate(config.plugins.events.event_item.day) }}</span>
-			<span class="event-month">{{ page.header.event.start|dateTranslate(config.plugins.events.event_item.month) }}</span>
-			<span class="event-time">
-				{{ page.header.event.start|dateTranslate(config.plugins.events.event_item.time) }}&ndash;{{ page.header.event.end|dateTranslate(config.plugins.events.event_item.time) }}
-			</span>
-			<span class="event-year">{{ page.header.event.start|date("Y") }}</span>
-		</time>
 	</header>
 	{% set image = page.media.images|first %}
 	{% if image != null %}
-		{{ image.cropZoom(960,280).html }}
+		{{ image.cropZoom(960,460).html("Veranstaltung: "~page.title, page.title, "img-response") }}
 	{% endif %}
 	<section class="event">
 		<div class="event-content">{{ page.content }}</div>

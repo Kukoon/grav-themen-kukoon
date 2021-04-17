@@ -4,9 +4,7 @@
 				{% for footer in theme_var('footers') %}
 					{% if footer.enabled %}
 						<div class="column col-lg-auto">
-						{% markdown %}
-							{{ footer.box }}
-						{% endmarkdown %}
+							{{ footer.box | markdown }}
 						</div>
 					{% endif %}
 				{% endfor %}

@@ -1,0 +1,4 @@
+title: Events - Next
+'@extends':
+    type: events
+    context: blueprints://pages
