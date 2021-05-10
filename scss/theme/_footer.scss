@@ -20,6 +20,53 @@ body.sticky-footer {
 	h5 {
 		color: #fff;
 	}
+	th {
+		padding-top: 0;
+	}
+	.social {
+		margin: 2em 0;
+
+		a {
+			display: inline-block;
+			margin: 0 0.2rem;
+			padding: 0;
+			border: 2px solid #fff;
+			border-radius: 50%;
+			color: #fff;
+			width: 2.2rem;
+			height: 2.2rem;
+			text-align: center;
+			vertical-align: middle;
+
+			&:first {
+				margin-right: 0px;
+			}
+
+			svg {
+				fill: currentColor;
+				overflow: hidden;
+				vertical-align: middle;
+				width: 60%;
+				height: 100%;
+			}
+		}
+	}
+	.language-selector {
+		float: unset;
+		top: unset;
+		margin: 0px !important;
+
+		.btn {
+			background: unset;
+			border: 0.05rem solid #770702;
+			border-radius: 0.1rem;
+		}
+	}
+
+	#langSelectorList{
+		top: auto;
+		bottom: 120%;
+	}
 }
 .footer-menu {
 	background-color: $primary-color;

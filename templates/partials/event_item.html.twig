@@ -7,7 +7,9 @@
 			</div>
 		{% endif %}
 		<div class="card-header">
-			{% include 'partials/event/categories.html.twig' %}
+			<div class="chips">
+				{% include 'partials/event/categories.html.twig' %}
+			</div>
 			<div class="card-title h5"><a href="{{ page.url }}">{{ page.title}}</a></div>
 		</div>
 		<div class="card-body">
@@ -18,7 +20,7 @@
 			<div class="float-right text-right">
 				<div>{{ page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) }}</div>
 				<div>
-					Einlass:
+					Einlass
 					<time datetime="{{ page.header.event.doors_open|date("c") }}">
 						{{ page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.time) }}
 					</time>

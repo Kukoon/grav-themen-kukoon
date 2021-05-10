@@ -8,6 +8,24 @@
 						</div>
 					{% endif %}
 				{% endfor %}
+				<div class="column col-lg-auto">
+					<h2>Newsletter</h2>
+					{% include "forms/form.html.twig" with { form: forms('newsletter-form') } %}
+					<div class="social">
+					{% for item in theme_var('footers-social') %}
+						<a href="{{ item.url }}" target="_blank">
+						{% if item.icon %}
+							{% set icon = (item.icon|first).name %}
+							<!-- img src="{{ url('theme://assets/' ~ icon)  }}" alt="{{ item.url }}" /-->
+							{{ svg_image('theme://assets/' ~ icon) }}
+						{% else %}
+							{{ item.url }}
+						{% endif %}
+						</a>
+					{% endfor %}
+					</div>
+					{% include 'partials/language-selector.html.twig' %}
+				</div>
 			</div>
 		</div>
 	</div>

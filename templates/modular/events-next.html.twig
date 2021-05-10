@@ -1,4 +1,3 @@
-{% extends 'partials/base.html.twig' %}
 {% set collection = page.collection({
       'items': {
         '@taxonomy': {
@@ -6,26 +5,24 @@
         }
       },
       'dateRange': {
-        'start': '1/1/1970',
-        'end': datetools.today|date('m/d/Y')
+        'start': datetools.today|date('m/d/Y')
       },
       'order': {
         'by': 'date',
-        'dir': 'desc'
+        'dir': 'asc'
       },
-}) %}
+  }) %}
 {% set show_breadcrumbs = header_var('show_breadcrumbs', [page, events])|defined(true) %}
 {% set show_pagination = header_var('show_pagination', [page, events])|defined(true) %}
 {% set show_sidebar = header_var('show_sidebar', [page, events])|defined(true)  %}
 
-{% block content %}
-	{% if show_breadcrumbs and config.plugins.breadcrumbs.enabled %}
-		{% include 'partials/breadcrumbs.html.twig' %}
-	{% endif %}
+{% if show_breadcrumbs and config.plugins.breadcrumbs.enabled %}
+	{% include 'partials/breadcrumbs.html.twig' %}
+{% endif %}
 
-	<h1 class="text-primary">{{ page.title }}</h1>
+<h2 class="text-primary">{{ page.title }}</h2>
 
-	{{ page.content|raw }}
+{{ page.content|raw }}
 
 <div class="columns">
 	{% if collection|length != 0 %}
@@ -45,4 +42,3 @@
 </div>
 {% endif %}
 
-{% endblock %}

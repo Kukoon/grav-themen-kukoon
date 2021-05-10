@@ -17,6 +17,9 @@ form {
       border: none;
     }
   }
+  .form-label {
+    padding: 0px;
+  }
 
   /** Reset some defaults for Quark Theme **/
   .form-group:not(.form-field-toggleable) {

@@ -11,13 +11,13 @@
 		<h1 class="event-title">{{ page.title }}</h1>
 		<div>{{ page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) }}</div>
 		<div>
-			Einlass:
+			Einlass
 			<time datetime="{{ page.header.event.doors_open|date("c") }}">
 				{{ page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.time) }}
 			</time>
 		</div>
 		<div>
-			Beginn:
+			Beginn
 			<time datetime="{{ page.header.event.start|date("c") }}">
 				{% if page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) != page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) %}
 					{{ page.header.event.start|dateTranslate(config.plugins.events.event_item.date) }}
@@ -26,7 +26,7 @@
 			</time>
 		</div>
 		<div>
-			Ende:
+			Ende
 			<time datetime="{{ page.header.event.end|date("c") }}">
 				{% if page.header.event.start|dateTranslate(config.plugins.events.event_item.date) != page.header.event.end|dateTranslate(config.plugins.events.event_item.date) %}
 					{{ page.header.event.end|dateTranslate(config.plugins.events.event_item.date) }}
@@ -41,7 +41,7 @@
 	</header>
 	{% set image = page.media.images|first %}
 	{% if image != null %}
-		{{ image.cropZoom(960,460).html("Veranstaltung: "~page.title, page.title, "img-response") }}
+		{{ image.cropResize(960,1700).html("Veranstaltung: "~page.title, page.title, "img-response") }}
 	{% endif %}
 	<section class="event">
 		<div class="event-content">{{ page.content }}</div>

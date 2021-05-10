@@ -18,7 +18,7 @@ form:
 
     menu.enabled:
       type: toggle
-      label: Menu Top
+      label: Menu
       highlight: 1
       default: 1
       options:
@@ -33,7 +33,7 @@ form:
       fields:
         .enabled:
           type: toggle
-          label: Show
+          label: Anzeigen
           highlight: 1
           default: 1
           options:
@@ -43,7 +43,23 @@ form:
             type: bool
         .box:
           type: editor
-          label: Box
+          label: Spalte
+
+    footers-social:
+      type: list
+      label: Social in Footer
+      fields:
+        .icon:
+          type: file
+          label: Icon
+          destination: 'theme://assets'
+          accept:
+            - image/*
+        .url:
+          type: text
+          label: URL
+
+
 
     menu.bottom:
       type: list

@@ -216,6 +216,8 @@ form {
     form .form-input[type=range]:focus {
       box-shadow: none;
       border: none; }
+  form .form-label {
+    padding: 0px; }
   form .form-group:not(.form-field-toggleable) .checkboxes {
     display: inherit; }
     form .form-group:not(.form-field-toggleable) .checkboxes label {
@@ -493,6 +495,40 @@ body.sticky-footer {
   #footer h4,
   #footer h5 {
     color: #fff; }
+  #footer th {
+    padding-top: 0; }
+  #footer .social {
+    margin: 2em 0; }
+    #footer .social a {
+      display: inline-block;
+      margin: 0 0.2rem;
+      padding: 0;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      color: #fff;
+      width: 2.2rem;
+      height: 2.2rem;
+      text-align: center;
+      vertical-align: middle; }
+      #footer .social a:first {
+        margin-right: 0px; }
+      #footer .social a svg {
+        fill: currentColor;
+        overflow: hidden;
+        vertical-align: middle;
+        width: 60%;
+        height: 100%; }
+  #footer .language-selector {
+    float: unset;
+    top: unset;
+    margin: 0px !important; }
+    #footer .language-selector .btn {
+      background: unset;
+      border: 0.05rem solid #770702;
+      border-radius: 0.1rem; }
+  #footer #langSelectorList {
+    top: auto;
+    bottom: 120%; }
 
 .footer-menu {
   background-color: #770702;
@@ -720,11 +756,14 @@ ul.pagination {
   padding: .4rem; }
   .event-item .card {
     height: 100%; }
+  .event-item .card-header {
+    padding: 0.8rem; }
+  .event-item .card-title {
+    margin: 0 0.4rem; }
+  .event-item .chip {
+    margin: 0; }
 
 .event-article {
   margin-top: 2rem; }
-
-time {
-  color: #770702; }
 
 /*# sourceMappingURL=theme.css.map */
