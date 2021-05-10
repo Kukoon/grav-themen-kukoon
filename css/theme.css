@@ -523,9 +523,18 @@ body.sticky-footer {
     top: unset;
     margin: 0px !important; }
     #footer .language-selector .btn {
-      background: unset;
-      border: 0.05rem solid #770702;
-      border-radius: 0.1rem; }
+      background: #770702;
+      border-color: #680602;
+      color: #fff;
+      background: unset; }
+      #footer .language-selector .btn:focus, #footer .language-selector .btn:hover {
+        background: #5e0602;
+        border-color: #4f0501;
+        color: #fff; }
+      #footer .language-selector .btn:active, #footer .language-selector .btn.active {
+        background: #540501;
+        border-color: #450401;
+        color: #fff; }
   #footer #langSelectorList {
     top: auto;
     bottom: 120%; }

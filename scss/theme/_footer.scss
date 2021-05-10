@@ -57,9 +57,8 @@ body.sticky-footer {
 		margin: 0px !important;
 
 		.btn {
+			@include button-primary;
 			background: unset;
-			border: 0.05rem solid #770702;
-			border-radius: 0.1rem;
 		}
 	}
 
