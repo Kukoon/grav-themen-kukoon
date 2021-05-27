@@ -499,7 +499,9 @@ body.sticky-footer {
     padding-top: 0; }
   #footer .social {
     margin: 2em 0; }
-    #footer .social a {
+    #footer .social a > img,
+    #footer .social a > svg,
+    #footer .social a > span {
       display: inline-block;
       margin: 0 0.2rem;
       padding: 0;
@@ -510,14 +512,18 @@ body.sticky-footer {
       height: 2.2rem;
       text-align: center;
       vertical-align: middle; }
-      #footer .social a:first {
+      #footer .social a > img:first,
+      #footer .social a > svg:first,
+      #footer .social a > span:first {
         margin-right: 0px; }
-      #footer .social a svg {
-        fill: currentColor;
-        overflow: hidden;
-        vertical-align: middle;
-        width: 60%;
-        height: 100%; }
+    #footer .social a > span {
+      padding-top: 0.2rem; }
+    #footer .social a > svg {
+      fill: currentColor;
+      overflow: hidden;
+      vertical-align: middle;
+      width: 60%;
+      height: 100%; }
   #footer .language-selector {
     float: unset;
     top: unset;

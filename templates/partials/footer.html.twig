@@ -15,11 +15,15 @@
 					{% for item in theme_var('footers-social') %}
 						<a href="{{ item.url }}" target="_blank">
 						{% if item.icon %}
-							{% set icon = (item.icon|first).name %}
-							<!-- img src="{{ url('theme://assets/' ~ icon)  }}" alt="{{ item.url }}" /-->
-							{{ svg_image('theme://assets/' ~ icon) }}
+							{% set icon = (item.icon|first) %}
+							{% if "svg" in icon.type %}
+								<!-- img src="{{ url('theme://assets/' ~ icon.name)  }}" alt="{{ item.label }}" /-->
+								{{ svg_image('theme://assets/' ~ icon.name) }}
+							{% else %}
+								<img src="{{ url('theme://assets/' ~ icon.name)  }}" alt="{{ item.label }}" />
+							{% endif %}
 						{% else %}
-							{{ item.url }}
+							<span>{{ item.label }}</span>
 						{% endif %}
 						</a>
 					{% endfor %}

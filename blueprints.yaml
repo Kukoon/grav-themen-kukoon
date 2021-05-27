@@ -49,15 +49,18 @@ form:
       type: list
       label: Social in Footer
       fields:
+        .url:
+          type: text
+          label: URL
         .icon:
           type: file
           label: Icon
           destination: 'theme://assets'
           accept:
             - image/*
-        .url:
+        .label:
           type: text
-          label: URL
+          label: Label
 
 
 
