@@ -12,7 +12,7 @@ body.sticky-footer {
 
 #footer {
 	color: #fff;
-	padding: 1rem $horiz-padding 0;
+	padding: 1rem $horiz-padding 2.5rem;
 	h1,
 	h2,
 	h3,
@@ -36,7 +36,7 @@ body.sticky-footer {
 			display: inline-block;
 			margin: 0 0.2rem;
 			padding: 0;
-			color: #eaeaea;
+			color: #f0f0f0;
 			width: 2.2rem !important;
 			height: 2.2rem !important;
 			text-align: center;
@@ -67,12 +67,42 @@ body.sticky-footer {
 		.btn {
 			@include button-primary;
 			background: unset;
+			border-color:#fff;
+
+			&:hover {
+				background: $primary-color;
+			}
 		}
 	}
 
-	#langSelectorList{
+	#langSelectorList {
 		top: auto;
 		bottom: 120%;
+	}
+
+	#newsletter-form {
+
+		form-field > form-data {
+			margin-top: 0.5rem
+		}
+		buttons {
+			margin-top: 0.5rem
+		}
+		buttons > button {
+			@include button-primary;
+			font-size: 0.8rem;
+			line-height: 1.5;
+			border-radius: 3px;
+			padding: 5px 10px;
+			background: unset;
+			color: #fff;
+			border: 1px solid;
+			border-color: #fff;
+
+			&:hover {
+				background: $primary-color;
+			}
+		}
 	}
 }
 .footer-menu {
