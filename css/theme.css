@@ -550,8 +550,8 @@ body.sticky-footer {
   #footer #langSelectorList {
     top: auto;
     bottom: 120%; }
-  #footer #newsletter-form .form-field > .form-data {
-    margin-top: 0.5rem; }
+  #footer #newsletter-form:first-child {
+    margin-bottom: 0.5rem; }
   #footer #newsletter-form .buttons {
     margin-top: 0.5rem; }
   #footer #newsletter-form .buttons > .button {
