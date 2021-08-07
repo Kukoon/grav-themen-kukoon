@@ -550,11 +550,11 @@ body.sticky-footer {
   #footer #langSelectorList {
     top: auto;
     bottom: 120%; }
-  #footer #newsletter-form form-field > form-data {
+  #footer #newsletter-form .form-field > .form-data {
     margin-top: 0.5rem; }
-  #footer #newsletter-form buttons {
+  #footer #newsletter-form .buttons {
     margin-top: 0.5rem; }
-  #footer #newsletter-form buttons > button {
+  #footer #newsletter-form .buttons > .button {
     background: #770702;
     border-color: #680602;
     color: #fff;
@@ -566,15 +566,15 @@ body.sticky-footer {
     color: #fff;
     border: 1px solid;
     border-color: #fff; }
-    #footer #newsletter-form buttons > button:focus, #footer #newsletter-form buttons > button:hover {
+    #footer #newsletter-form .buttons > .button:focus, #footer #newsletter-form .buttons > .button:hover {
       background: #5e0602;
       border-color: #4f0501;
       color: #fff; }
-    #footer #newsletter-form buttons > button:active, #footer #newsletter-form buttons > button.active {
+    #footer #newsletter-form .buttons > .button:active, #footer #newsletter-form .buttons > .button.active {
       background: #540501;
       border-color: #450401;
       color: #fff; }
-    #footer #newsletter-form buttons > button:hover {
+    #footer #newsletter-form .buttons > .button:hover {
       background: #770702; }
 
 .footer-menu {
