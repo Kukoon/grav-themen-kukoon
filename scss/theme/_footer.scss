@@ -82,8 +82,8 @@ body.sticky-footer {
 
 	#newsletter-form {
 
-		.form-field > .form-data {
-			margin-top: 0.5rem
+		&:first-child {
+			margin-bottom: 0.5rem
 		}
 		.buttons {
 			margin-top: 0.5rem
