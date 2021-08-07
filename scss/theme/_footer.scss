@@ -82,13 +82,13 @@ body.sticky-footer {
 
 	#newsletter-form {
 
-		form-field > form-data {
+		.form-field > .form-data {
 			margin-top: 0.5rem
 		}
-		buttons {
+		.buttons {
 			margin-top: 0.5rem
 		}
-		buttons > button {
+		.buttons > .button {
 			@include button-primary;
 			font-size: 0.8rem;
 			line-height: 1.5;
