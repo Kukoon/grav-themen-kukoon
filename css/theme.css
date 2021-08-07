@@ -507,7 +507,7 @@ body.sticky-footer {
       display: inline-block;
       margin: 0 0.2rem;
       padding: 0;
-      color: #eaeaea;
+      color: #f0f0f0;
       width: 2.2rem !important;
       height: 2.2rem !important;
       text-align: center;
@@ -535,7 +535,8 @@ body.sticky-footer {
       background: #770702;
       border-color: #680602;
       color: #fff;
-      background: unset; }
+      background: unset;
+      border-color: #fff; }
       #footer .language-selector .btn:focus, #footer .language-selector .btn:hover {
         background: #5e0602;
         border-color: #4f0501;
@@ -544,9 +545,37 @@ body.sticky-footer {
         background: #540501;
         border-color: #450401;
         color: #fff; }
+      #footer .language-selector .btn:hover {
+        background: #770702; }
   #footer #langSelectorList {
     top: auto;
     bottom: 120%; }
+  #footer #newsletter-form form-field > form-data {
+    margin-top: 0.5rem; }
+  #footer #newsletter-form buttons {
+    margin-top: 0.5rem; }
+  #footer #newsletter-form buttons > button {
+    background: #770702;
+    border-color: #680602;
+    color: #fff;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    border-radius: 3px;
+    padding: 5px 10px;
+    background: unset;
+    color: #fff;
+    border: 1px solid;
+    border-color: #fff; }
+    #footer #newsletter-form buttons > button:focus, #footer #newsletter-form buttons > button:hover {
+      background: #5e0602;
+      border-color: #4f0501;
+      color: #fff; }
+    #footer #newsletter-form buttons > button:active, #footer #newsletter-form buttons > button.active {
+      background: #540501;
+      border-color: #450401;
+      color: #fff; }
+    #footer #newsletter-form buttons > button:hover {
+      background: #770702; }
 
 .footer-menu {
   background-color: #770702;
