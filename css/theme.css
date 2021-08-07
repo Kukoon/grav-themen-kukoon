@@ -550,8 +550,6 @@ body.sticky-footer {
   #footer #langSelectorList {
     top: auto;
     bottom: 120%; }
-  #footer #newsletter-form:first-child {
-    margin-bottom: 0.5rem; }
   #footer #newsletter-form .buttons {
     margin-top: 0.5rem; }
   #footer #newsletter-form .buttons > .button {
@@ -576,6 +574,8 @@ body.sticky-footer {
       color: #fff; }
     #footer #newsletter-form .buttons > .button:hover {
       background: #770702; }
+  #footer #newsletter-form > div:first-child {
+    margin-bottom: 0.5rem; }
 
 .footer-menu {
   background-color: #770702;
