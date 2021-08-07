@@ -81,10 +81,6 @@ body.sticky-footer {
 	}
 
 	#newsletter-form {
-
-		&:first-child {
-			margin-bottom: 0.5rem
-		}
 		.buttons {
 			margin-top: 0.5rem
 		}
@@ -104,7 +100,11 @@ body.sticky-footer {
 			}
 		}
 	}
+	#newsletter-form > div:first-child {
+		margin-bottom: 0.5rem
+	}
 }
+
 .footer-menu {
 	background-color: $primary-color;
 	color: $light-color;
