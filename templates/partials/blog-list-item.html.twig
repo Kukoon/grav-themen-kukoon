@@ -1,5 +1,5 @@
 
-<h2>{{ page.title }}</h2>
+<h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
 {% set image = page.media.images|first %}
 {% if image %}
 <div class="card-image">
@@ -7,7 +7,7 @@
 </div>
 {% endif %}
 <div class="card-body">
-    {{ page.content|raw }}
+    {{ page.summary|raw }}
 </div>
 <div class="card-footer">
 {% include 'partials/blog/taxonomy.html.twig' %}
