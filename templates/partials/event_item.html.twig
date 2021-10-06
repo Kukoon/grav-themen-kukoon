@@ -3,19 +3,23 @@
 	<div class="card">
 		{% if image != null %}
 			<div class="card-image">
-				{{ image.cropZoom(900,506).html("Veranstaltung: "~page.title, page.title, "img-responsive") }}
+				<a href="{{ page.url }}">
+					{{ image.cropZoom(900,506).html("Veranstaltung: "~page.title, page.title, "img-responsive") }}
+				</a>
 			</div>
 		{% endif %}
 		<div class="card-header">
 			<div class="chips">
 				{% include 'partials/event/categories.html.twig' %}
 			</div>
-			<div class="card-title h5"><a href="{{ page.url }}">{{ page.title}}</a></div>
+			<div class="card-title h5">
+				<a href="{{ page.url }}">{{ page.title}}</a>
+			</div>
 		</div>
 		<div class="card-body">
 			{% set category = page.taxonomy.category|first %}
 			<a href="{{ event.url|rtrim('/') }}/category{{ config.system.param_sep }}{{ category }}">
-				<img src="/user/themes/kukoon/images/category/{{ category }}.jpg" alt="{{ category }}" style="height: 64px;" />
+				<img src="/user/themes/kukoon/images/category/{{ category }}.jpg" alt="{{ category }}" style="height: 64px;"/>
 			</a>
 			<div class="float-right text-right">
 				{% if page.header.event.doors_open != null  and page.header.event.doors_open != page.header.event.start %}
