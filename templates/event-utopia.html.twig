@@ -1,0 +1,49 @@
+{% extends 'partials/base.html.twig' %}
+{% set show_breadcrumbs = header_var('show_breadcrumbs', [page, blog])|defined(true) %}
+{% set show_sidebar = header_var('show_sidebar', [page, blog])|defined(true)  %}
+
+{% block content %}
+
+
+<article class="event-article">
+	<header class="event-header">
+		{% include 'partials/event/categories.html.twig' %}
+		<h1 class="event-title">{{ page.title }}</h1>
+		<div>
+			{% if page.header.event.doors_open != null and page.header.event.doors_open != page.header.event.start %}
+				{{ page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) }}
+				
+					Einlass
+					<time datetime="{{ page.header.event.doors_open|date("c") }}">
+						{{ page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.time) }}
+					</time>
+				
+			{% else %}
+				{{ page.header.event.start|dateTranslate(config.plugins.events.event_item.date) }}
+			{% endif %}
+			
+				Beginn
+				<time datetime="{{ page.header.event.start|date("c") }}">
+					{% if page.header.event.doors_open and page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) != page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) %}
+						{{ page.header.event.start|dateTranslate(config.plugins.events.event_item.date) }}
+					{% endif %}
+					{{ page.header.event.start|dateTranslate(config.plugins.events.event_item.time) }}
+				</time>
+			
+			
+				Ende
+				<time datetime="{{ page.header.event.end|date("c") }}">
+					{% if page.header.event.start|dateTranslate(config.plugins.events.event_item.date) != page.header.event.end|dateTranslate(config.plugins.events.event_item.date) %}
+						{{ page.header.event.end|dateTranslate(config.plugins.events.event_item.date) }}
+					{% endif %}
+					{{ page.header.event.end|dateTranslate(config.plugins.events.event_item.time) }}
+				</time>
+		</div>
+	</header>
+	<section class="event">
+		<div class="event-content">{{ page.content }}</div>
+		{% include 'partials/event_meta.html.twig' with { 'page': page } %}
+	</section>
+</article>
+
+{% endblock %}
