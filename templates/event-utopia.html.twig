@@ -1,6 +1,7 @@
 {% extends 'partials/base.html.twig' %}
 {% set show_breadcrumbs = header_var('show_breadcrumbs', [page, blog])|defined(true) %}
 {% set show_sidebar = header_var('show_sidebar', [page, blog])|defined(true)  %}
+{% set content = page.content|slice(page.summary|length) %}
 
 {% block content %}
 
