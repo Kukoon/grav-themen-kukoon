@@ -6,7 +6,7 @@
 		{% if page.header.event.doors_open != null and page.header.event.doors_open != page.header.event.start %}
 			{{ page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) }}
 			| 
-															                Einlass
+																		                Einlass
 			<time datetime="{{ page.header.event.doors_open|date("c") }}">
 				{{ page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.time) }}
 			</time>
@@ -23,7 +23,7 @@
 			{{ page.header.event.start|dateTranslate(config.plugins.events.event_item.time) }}
 		</time>
 		| 
-										            Ende
+												            Ende
 		<time datetime="{{ page.header.event.end|date("c") }}">
 			{% if page.header.event.start|dateTranslate(config.plugins.events.event_item.date) != page.header.event.end|dateTranslate(config.plugins.events.event_item.date) %}
 				{{ page.header.event.end|dateTranslate(config.plugins.events.event_item.date) }}
