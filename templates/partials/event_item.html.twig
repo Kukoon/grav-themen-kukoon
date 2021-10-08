@@ -16,7 +16,7 @@
 				<a href="{{ page.url }}">{{ page.title}}</a>
 			</div>
 		</div>
-		<div class="card-body">
+		<div class="card-body" style="flex: 0 0 auto !important; margin-top: auto">
 			{% set category = page.taxonomy.category|first %}
 			{% if 'Utopia Film Festival' in page.taxonomy.category %}
 				<a href="{% if event %}{{ event.parent.url|regex_replace(['/utopia-film-festival/'], [''])|rtrim('/') }}{% else %}{{ page.parent.url|regex_replace(['/utopia-film-festival/'], [''])|rtrim('/') }}{% endif %}/all/category{{ config.system.param_sep }}{{ category }}">
