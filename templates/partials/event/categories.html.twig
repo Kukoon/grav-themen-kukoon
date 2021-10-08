@@ -2,13 +2,15 @@
 	{% for category in page.taxonomy.category %}
 		{% if 'Utopia Film Festival' in page.taxonomy.category %}
 			<a href="{% if event %}{{ event.parent.url|regex_replace(['/utopia-film-festival/'], [''])|rtrim('/') }}{% else %}{{ page.parent.url|regex_replace(['/utopia-film-festival/'], [''])|rtrim('/') }}{% endif %}/all/category{{ config.system.param_sep }}{{ category }}">
-				<span class="chip">
+				<span class="chip" style="font-size: 70% !important">
+
 					{{ category }}
 				</span>
 			</a>
 		{% else %}
 			<a href="{% if event %}{{ event.parent.url|rtrim('/') }}{% else %}{{page.parent.url|rtrim('/')}}{% endif %}/all/category{{ config.system.param_sep }}{{ category }}">
-				<span class="chip">
+				<span class="chip" style="font-size: 70% !important">
+
 					{{ category }}
 				</span>
 			</a>
