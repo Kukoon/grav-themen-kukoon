@@ -18,9 +18,15 @@
 		</div>
 		<div class="card-body">
 			{% set category = page.taxonomy.category|first %}
-			<a href="{{ event.url|rtrim('/') }}/category{{ config.system.param_sep }}{{ category }}">
-				<img src="/user/themes/kukoon/images/category/{{ category }}.jpg" alt="{{ category }}" style="height: 64px;"/>
-			</a>
+			{% if 'Utopia Film Festival' in page.taxonomy.category %}
+				<a href="{% if event %}{{ event.parent.url|rtrim('/') }}{% else %}{{page.parent.url|rtrim('/')}}{% endif %}/all/category{{ config.system.param_sep }}{{ category }}">
+					<img src="/user/themes/kukoon/images/category/{{ category }}.jpg" alt="{{ category }}" style="height: 64px;"/>
+				</a>
+			{% else %}
+				<a href="{% if event %}{{ event.parent.url|rtrim('/') }}{% else %}{{page.parent.url|rtrim('/')}}{% endif %}/all/category{{ config.system.param_sep }}{{ category }}">
+					<img src="/user/themes/kukoon/images/category/{{ category }}.jpg" alt="{{ category }}" style="height: 64px;"/>
+				</a>
+			{% endif %}
 			<div class="float-right text-right">
 				{% if page.header.event.doors_open != null  and page.header.event.doors_open != page.header.event.start %}
 					<div>{{ page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) }}</div>
