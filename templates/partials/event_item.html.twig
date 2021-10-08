@@ -19,7 +19,9 @@
 		<div class="card-body">
 			{% set category = page.taxonomy.category|first %}
 			{% if 'Utopia Film Festival' in page.taxonomy.category %}
-				<a href="{% if event %}{{ event.parent.url|rtrim('/') }}{% else %}{{page.parent.url|rtrim('/')}}{% endif %}/all/category{{ config.system.param_sep }}{{ category }}">
+				<a href="{% if event %}{{ event.parent.url|regex_replace(['/utopia-film-festival/'], [''])|rtrim('/') }}{% else %}{{ page.parent.url|regex_replace(['/utopia-film-festival/'], [''])|rtrim('/') }}{% endif %}/all/category{{ config.system.param_sep }}{{ category }}">
+
+
 					<img src="/user/themes/kukoon/images/category/{{ category }}.jpg" alt="{{ category }}" style="height: 64px;"/>
 				</a>
 			{% else %}
