@@ -12,7 +12,7 @@
 				{% if page.header.event.doors_open != null and page.header.event.doors_open != page.header.event.start %}
 					{{ page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) }}
 					| 
-																																																																																																																												Einlass
+																																																																																																				                Einlass
 					<time datetime="{{ page.header.event.doors_open|date("c") }}">
 						{{ page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.time) }}
 					</time>
@@ -28,15 +28,26 @@
 					{% endif %}
 					{{ page.header.event.start|dateTranslate(config.plugins.events.event_item.time) }}
 				</time>
-				| 
-																																																																																																		Ende
-				<time datetime="{{ page.header.event.end|date("c") }}">
-					{% if page.header.event.start|dateTranslate(config.plugins.events.event_item.date) != page.header.event.end|dateTranslate(config.plugins.events.event_item.date) %}
-						{{ page.header.event.end|dateTranslate(config.plugins.events.event_item.date) }}
+				{% if page.header.event.end %}
+					| 
+																																																																													            Ende
+					<time datetime="{{ page.header.event.end|date("c") }}">
+						{% if page.header.event.start|dateTranslate(config.plugins.events.event_item.date) != page.header.event.end|dateTranslate(config.plugins.events.event_item.date) %}
+							{{ page.header.event.end|dateTranslate(config.plugins.events.event_item.date) }}
+						{% endif %}
+						{{ page.header.event.end|dateTranslate(config.plugins.events.event_item.time) }}
+					{% elseif page.header.metadata.Duration %}
+
+						|
+						{{page.header.metadata.Duration}}
 					{% endif %}
-					{{ page.header.event.end|dateTranslate(config.plugins.events.event_item.time) }}
+					{% if page.header.metadata.Language %}
+						|
+						{{page.header.metadata.Language}}
+					{% endif %}
 				</time>
 			</div>
+
 			{% include 'partials/event/ticket.html.twig' %}
 			{% if (config.plugins.events.event_meta.display_location) and (page.header.event.location is not empty) %}
 				<h3 class="event-location">
