@@ -1,0 +1,44 @@
+{% extends 'partials/base.html.twig' %}
+{% set collection = page.collection({
+      'items': {
+        '@taxonomy': {
+					'category': 'Utopia Film Festival',
+        },
+      },
+			'dateRange': {
+        'start': datetools.today|date('m/d/Y')
+      },
+      'order': {
+        'by': 'date',
+        'dir': 'asc'
+      },
+}) %}
+
+{% block body %}
+	<section id="body-wrapper" class="section blog-listing">
+		<section class="container {{ grid_size }}">
+
+
+			<h1 class="text-primary">
+				{{ page.title }}
+			</h1>
+
+			{{ page.content|raw }}
+			{% embed 'partials/layout.html.twig' with { page: blog} %}
+
+				{% block item %}
+
+					<div>
+						{% if collection|length != 0 %}
+							{% for event in collection %}
+								{% include 'partials/utopia-event-list-item.html.twig' with {page: event} %}
+
+
+							{% endfor %}
+						{% endif %}
+					</div>
+				{% endblock %}
+			{% endembed %}
+		</section>
+	</section>
+{% endblock %}

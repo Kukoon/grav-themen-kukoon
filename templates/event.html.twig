@@ -5,52 +5,62 @@
 {% block content %}
 
 
-<article class="event-article">
-	<header class="event-header">
-		{% include 'partials/event/categories.html.twig' %}
-		<h1 class="event-title">{{ page.title }}</h1>
-		{% if page.header.event.doors_open != null and page.header.event.doors_open != page.header.event.start %}
-			<div>{{ page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) }}</div>
+	<article class="event-article">
+		<header class="event-header">
+			<h1 class="event-title">{{ page.title }}</h1>
 			<div>
-				Einlass
-				<time datetime="{{ page.header.event.doors_open|date("c") }}">
-					{{ page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.time) }}
+				{% if page.header.event.doors_open != null and page.header.event.doors_open != page.header.event.start %}
+					{{ page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) }}
+					| 
+																																																																																																																		Einlass
+					<time datetime="{{ page.header.event.doors_open|date("c") }}">
+						{{ page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.time) }}
+					</time>
+					|
+				{% else %}
+					{{ page.header.event.start|dateTranslate(config.plugins.events.event_item.date) }}
+					|
+				{% endif %}
+				Beginn
+				<time datetime="{{ page.header.event.start|date("c") }}">
+					{% if page.header.event.doors_open and page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) != page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) %}
+						{{ page.header.event.start|dateTranslate(config.plugins.events.event_item.date) }}
+					{% endif %}
+					{{ page.header.event.start|dateTranslate(config.plugins.events.event_item.time) }}
+				</time>
+				| 
+																																																																																										Ende
+				<time datetime="{{ page.header.event.end|date("c") }}">
+					{% if page.header.event.start|dateTranslate(config.plugins.events.event_item.date) != page.header.event.end|dateTranslate(config.plugins.events.event_item.date) %}
+						{{ page.header.event.end|dateTranslate(config.plugins.events.event_item.date) }}
+					{% endif %}
+					{{ page.header.event.end|dateTranslate(config.plugins.events.event_item.time) }}
 				</time>
 			</div>
+			{% include 'partials/event/ticket.html.twig' %}
+			{% if (config.plugins.events.event_meta.display_location) and (page.header.event.location is not empty) %}
+				<h3 class="event-location">
+					<span class="location-pin"></span>
+					{{ page.header.event.location }}</h3>
+			{% endif %}
+		</header>
+		{% if 'Utopia Film Festival' in page.taxonomy.category %}
+			<section class="event">
+				<div class="event-content">
+					{{  page.content|slice(page.summary|length) }}
+				</div>
+			</section>
 		{% else %}
-			<div>{{ page.header.event.start|dateTranslate(config.plugins.events.event_item.date) }}</div>
+			{% set image = page.media.images|first %}
+			{% if image != null %}
+				{{ image.cropResize(960,1700).html("Veranstaltung: "~page.title, page.title, "img-response") }}
+			{% endif %}
+			<section class="event">
+				<div class="event-content">{{ page.content }}</div>
+				{% include 'partials/event/categories.html.twig' %}
+				{% include 'partials/event_meta.html.twig' with { 'page': page } %}
+			</section>
 		{% endif %}
-		<div>
-			Beginn
-			<time datetime="{{ page.header.event.start|date("c") }}">
-				{% if page.header.event.doors_open and page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) != page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) %}
-					{{ page.header.event.start|dateTranslate(config.plugins.events.event_item.date) }}
-				{% endif %}
-				{{ page.header.event.start|dateTranslate(config.plugins.events.event_item.time) }}
-			</time>
-		</div>
-		<div>
-			Ende
-			<time datetime="{{ page.header.event.end|date("c") }}">
-				{% if page.header.event.start|dateTranslate(config.plugins.events.event_item.date) != page.header.event.end|dateTranslate(config.plugins.events.event_item.date) %}
-					{{ page.header.event.end|dateTranslate(config.plugins.events.event_item.date) }}
-				{% endif %}
-				{{ page.header.event.end|dateTranslate(config.plugins.events.event_item.time) }}
-			</time>
-		</div>
-		{% include 'partials/event/ticket.html.twig' %}
-		{% if (config.plugins.events.event_meta.display_location) and (page.header.event.location is not empty) %}
-			<h3 class="event-location"><span class="location-pin"></span>{{ page.header.event.location }}</h3>
-		{% endif %}
-	</header>
-	{% set image = page.media.images|first %}
-	{% if image != null %}
-		{{ image.cropResize(960,1700).html("Veranstaltung: "~page.title, page.title, "img-response") }}
-	{% endif %}
-	<section class="event">
-		<div class="event-content">{{ page.content }}</div>
-		{% include 'partials/event_meta.html.twig' with { 'page': page } %}
-	</section>
-</article>
+	</article>
 
 {% endblock %}
