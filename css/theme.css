@@ -164,8 +164,13 @@ h6, .h6 {
 }
 
 .title-h1h2 h1 + h2, .title-center h1 + h2 {
-  margin-bottom: 50px;
   font-weight: 700;
+}
+.title-h1h2 h1, .title-center h1 {
+  margin-bottom: 50px;
+}
+.title-h1h2 h2, .title-center h2 {
+  margin-bottom: 20px;
 }
 
 a:focus {

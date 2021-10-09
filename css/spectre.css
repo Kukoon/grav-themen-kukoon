@@ -473,7 +473,7 @@ h6 {
   color: inherit;
   font-weight: 500;
   line-height: 1.2;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.2em;
   margin-top: 0;
 }
 
@@ -494,6 +494,7 @@ h1,
 h2,
 .h2 {
   font-size: 1.6rem;
+  margin-bottom: 0.2em;
 }
 
 h3,
