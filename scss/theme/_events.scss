@@ -3,12 +3,25 @@
 
 	.card {
 		height: 100%;
+
+		.event-card-body {
+		flex: 0 0 auto;
+		margin-top: auto;
+		padding: $layout-spacing-lg;
+    padding-bottom: 0;
+
+    &:last-child {
+      padding-bottom: $layout-spacing-lg;
+    }
+		}
 	}
 	.card-header {
 		padding: 0.8rem;
 	}
 	.card-title {
-		margin: 0 0.4rem;
+		margin-top: 6px;
+		margin-left: 0.08rem;
+		margin-right: 0.08rem;
 	}
 	.chip {
 		margin: 0;

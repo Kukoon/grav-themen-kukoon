@@ -12,11 +12,12 @@
 			<div class="chips">
 				{% include 'partials/event/categories.html.twig' %}
 			</div>
-			<div class="card-title h5" style="margin-top: 6px; margin-left: 0.08rem !important">
+			<div class="card-title h5">
 				<a href="{{ page.url }}">{{ page.title}}</a>
 			</div>
 		</div>
-		<div class="card-body" style="flex: 0 0 auto !important; margin-top: auto">
+		<!-- TODO: Generalize this -->
+		<div class="event-card-body">
 			{% set category = page.taxonomy.category|first %}
 			{% if 'Utopia Film Festival' in page.taxonomy.category %}
 				<a href="{% if event %}{{ event.parent.url|regex_replace(['/utopia-film-festival/'], [''])|rtrim('/') }}{% else %}{{ page.parent.url|regex_replace(['/utopia-film-festival/'], [''])|rtrim('/') }}{% endif %}/all/category{{ config.system.param_sep }}{{ category }}">

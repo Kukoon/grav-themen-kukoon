@@ -6,7 +6,7 @@
 		{% if page.header.event.doors_open != null and page.header.event.doors_open != page.header.event.start %}
 			{{ page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) }}
 			| 
-																																																																																													                Einlass
+																																																																																																			                Einlass
 			<time datetime="{{ page.header.event.doors_open|date("c") }}">
 				{{ page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.time) }}
 			</time>
@@ -24,7 +24,7 @@
 		</time>
 		{% if page.header.event.end %}
 			| 
-																																																																						            Ende
+																																																																												            Ende
 			<time datetime="{{ page.header.event.end|date("c") }}">
 				{% if page.header.event.start|dateTranslate(config.plugins.events.event_item.date) != page.header.event.end|dateTranslate(config.plugins.events.event_item.date) %}
 					{{ page.header.event.end|dateTranslate(config.plugins.events.event_item.date) }}
@@ -46,8 +46,8 @@
 {% if image %}
 	<div class="card-image">
 		<a href="{{ page.url }}">{{ image.html|raw }}</a>
-		<div style="position: relative; margin-bottom: 32px">
-			<span style="position: absolute; right: 0px; font-size: 11px">Credit:
+		<div class="credit">
+			<span>Credit:
 				{{ page.header.metadata.Credit }}</span>
 		</div>
 	</div>
