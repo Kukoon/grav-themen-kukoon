@@ -1088,6 +1088,10 @@ ul.pagination {
   margin-top: 2rem;
 }
 
+.event-title {
+  margin-top: 0.6rem;
+}
+
 .meta-info {
   padding: 0.04rem 0;
 }
