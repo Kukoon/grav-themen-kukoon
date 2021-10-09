@@ -82,7 +82,7 @@
 
 .overlay {
   position: fixed;
-  background: #000;
+  background: #770702;
   top: 0;
   left: 0;
   width: 100%;
@@ -91,10 +91,10 @@
   visibility: hidden;
   transition: opacity .35s, visibility .35s, height .35s;
   padding-top: 128px; // logo size
-  font-size: 2rem;
+  font-size: 1.4rem;
 
   &.open {
-    opacity: .95;
+    opacity: 1;
     visibility: visible;
     height: 100%;
 
@@ -105,6 +105,9 @@
     margin: 0 auto;
     text-align: center;
   }
+	a {
+		color: #fff;
+	}
   a[href*="//"]::after {
     content: "";
     background-image: url("../images/link.png");
@@ -118,13 +121,30 @@
 .overlay-menu {
   height: 100%;
   overflow-y: scroll;
+	padding: 0 1rem;
 
   & > .tree {
     text-align: left;
+	}
+	.tree {
+		li {
+			ul {
+				padding-top: 0;
+				box-shadow: 0;
+				font-size: 80%;
+			}
+		}
+		li::marker {
+			color: #fff;
+		}
+		li:first-of-type {
+			margin-top: 0;
+		}
   }
   .menu {
     background-color: inherit;
     margin-left: 1rem;
+		box-shadow: 0 !important;
   }
 }
 

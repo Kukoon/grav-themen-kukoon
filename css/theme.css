@@ -401,15 +401,15 @@ form .form-group:not(.form-field-toggleable) .checkboxes label:before {
 }
 .mobile-menu .button_container.active .top {
   transform: translateY(8px) translateX(0) rotate(45deg);
-  background: #FFF;
+  background: #fff;
 }
 .mobile-menu .button_container.active .middle {
   opacity: 0;
-  background: #FFF;
+  background: #fff;
 }
 .mobile-menu .button_container.active .bottom {
   transform: translateY(-8px) translateX(0) rotate(-45deg);
-  background: #FFF;
+  background: #fff;
 }
 .mobile-menu .button_container span {
   background: #fff;
@@ -431,7 +431,7 @@ form .form-group:not(.form-field-toggleable) .checkboxes label:before {
 
 .overlay {
   position: fixed;
-  background: #000;
+  background: #770702;
   top: 0;
   left: 0;
   width: 100%;
@@ -440,10 +440,10 @@ form .form-group:not(.form-field-toggleable) .checkboxes label:before {
   visibility: hidden;
   transition: opacity 0.35s, visibility 0.35s, height 0.35s;
   padding-top: 128px;
-  font-size: 2rem;
+  font-size: 1.4rem;
 }
 .overlay.open {
-  opacity: 0.95;
+  opacity: 1;
   visibility: visible;
   height: 100%;
 }
@@ -451,6 +451,9 @@ form .form-group:not(.form-field-toggleable) .checkboxes label:before {
   position: relative;
   margin: 0 auto;
   text-align: center;
+}
+.overlay a {
+  color: #fff;
 }
 .overlay a[href*="//"]::after {
   content: "";
@@ -464,13 +467,26 @@ form .form-group:not(.form-field-toggleable) .checkboxes label:before {
 .overlay-menu {
   height: 100%;
   overflow-y: scroll;
+  padding: 0 1rem;
 }
 .overlay-menu > .tree {
   text-align: left;
 }
+.overlay-menu .tree li ul {
+  padding-top: 0;
+  box-shadow: 0;
+  font-size: 80%;
+}
+.overlay-menu .tree li::marker {
+  color: #fff;
+}
+.overlay-menu .tree li:first-of-type {
+  margin-top: 0;
+}
 .overlay-menu .menu {
   background-color: inherit;
   margin-left: 1rem;
+  box-shadow: 0 !important;
 }
 
 .treemenu.treemenu-root {

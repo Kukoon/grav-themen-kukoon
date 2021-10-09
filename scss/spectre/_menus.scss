@@ -1,6 +1,5 @@
 // Menus
 .menu {
-  @include shadow-variant(.05rem);
   background: $bg-color-light;
   border-radius: $border-radius;
   list-style: none;
