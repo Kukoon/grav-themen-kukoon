@@ -587,6 +587,7 @@ form .form-group:not(.form-field-toggleable) .checkboxes label:before {
   font-weight: 700;
   background: #770702;
   color: #ddd;
+  margin-bottom: 1rem;
 }
 #header a {
   color: #ddd;
