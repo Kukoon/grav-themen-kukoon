@@ -28,6 +28,9 @@
 							<span>{{ item.label|capitalize }}</span>
 						{% endif %}
 						</a>
+                        {% if not loop.last %}
+                            </br>
+                        {% endif %}
 					{% endfor %}
 					</div>
 					<h4>Sprache</h4>
