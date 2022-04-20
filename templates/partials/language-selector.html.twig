@@ -34,9 +34,6 @@
     {% if show_language %}
         <li>
           <a href="{{ lang_url ~ uri.params }}">
-            {% if language_display.select == 'default' or language_display.select == 'flag' %}
-            <img alt="{{ native_name(language)|capitalize }}" src="{{ path_flags ~ language }}.png" />
-            {% endif %}
             {% if language_display.select == 'default' or language_display.select == 'name' %}
             {{ native_name(language)|capitalize }}
             {% endif %}
