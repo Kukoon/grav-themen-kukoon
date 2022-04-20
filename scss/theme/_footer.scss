@@ -20,11 +20,14 @@ body.sticky-footer {
 	h5 {
 		color: #fff;
 	}
+	h4 {
+		margin-top: 1.2em;
+	},
 	th {
 		padding-top: 0;
 	}
 	.social {
-		margin: 2em 0;
+		margin: 0.2em 0;
 		
 		a {
 			text-decoration: none !important
@@ -62,7 +65,7 @@ body.sticky-footer {
 	.language-selector {
 		float: unset;
 		top: unset;
-		margin: 0px !important;
+		margin: 1.2em 0 !important;
 
 		.btn {
 			@include button-primary;
