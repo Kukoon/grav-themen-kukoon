@@ -23,8 +23,9 @@
 							{% else %}
 								<img src="{{ url('theme://assets/' ~ icon.name)  }}" alt="{{ item.label }}" />
 							{% endif %}
+							<span>{{ item.label|capitalize }}</span>
 						{% else %}
-							<span>{{ item.label }}</span>
+							<span>{{ item.label|capitalize }}</span>
 						{% endif %}
 						</a>
 					{% endfor %}
