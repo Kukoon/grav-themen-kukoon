@@ -11,6 +11,7 @@
 				<div class="column col-lg-auto">
 					<h4>Newsletter</h4>
 					{% include "forms/form.html.twig" with { form: forms('newsletter-form') } %}
+					<h4>Social</h4>
 					<div class="social">
 					{% for item in theme_var('footers-social') %}
 						<a href="{{ item.url }}" target="_blank">
@@ -28,6 +29,7 @@
 						</a>
 					{% endfor %}
 					</div>
+					<h4>Sprache</h4>
 					{% include 'partials/language-selector.html.twig' %}
 				</div>
 			</div>
