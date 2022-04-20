@@ -53,7 +53,7 @@ body.sticky-footer {
 			}
 		}
 		a > span {
-			padding-top: 0.2rem;
+			width: unset !important;
 		}
 		a > svg {
 			fill: currentColor;
