@@ -1,8 +1,5 @@
 <div class="language-selector">
   <button class="btn" type="button" data-dropdown="langSelectorList">
-    {% if language_display.button == 'default' or language_display.button == 'flag' %}
-    <img alt="{{ native_name(language_selector.current)|capitalize }}" src="{{ path_flags ~ language_selector.current }}.png" />
-    {% endif %}
     {% if language_display.button == 'default' or language_display.button == 'name' %}
     {{ native_name(language_selector.current)|capitalize }}
     {% endif %}
