@@ -33,7 +33,9 @@
 			{{page.header.metadata.Language}}
 		{% endif %}
 	</time>
-	{% if (config.plugins.events.event_meta.display_location) and (page.header.event.location is not empty) %}
+</div>
+<div class="meta-info meta-location">
+{% if (config.plugins.events.event_meta.display_location) and (page.header.event.location is not empty) %}
 		<span class="location-pin">
 			| Location📍:</span>
 		{% if (page.header.event.coordinates) %}
