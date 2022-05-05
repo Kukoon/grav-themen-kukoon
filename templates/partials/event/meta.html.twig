@@ -36,14 +36,11 @@
 </div>
 <div class="meta-info meta-location">
 {% if (config.plugins.events.event_meta.display_location) and (page.header.event.location is not empty) %}
-		<span class="location-pin">
-			| Location📍:</span>
+		<span class="location-pin">Location📍:</span>
 		{% if (page.header.event.coordinates) %}
 			<a href="https://maps.google.com/?q={{ page.header.event.location|replace({' ': '+'}) }}&ll={{ page.header.event.coordinates|replace({' ': ''})}}" target="_blank">{{ page.header.event.location }}</a>
-
 		{% else %}
 			<a href="https://maps.google.com/?q={{ page.header.event.location|replace({' ': '+'}) }}" target="_blank">{{ page.header.event.location }}</a>
-
 		{% endif %}
 	{% endif %}
 </div>
