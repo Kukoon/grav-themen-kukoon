@@ -1,13 +1,13 @@
 {% if page.header.event.ticket_show == "price" %}
-<div>Eintritt
-	{% if page.header.event.ticket_link != "" %}
-	<a href="{{page.header.event.ticket_link}}" target="_blank">
-		{{ page.header.event.ticket_price }}
-	</a>
-	{% else %}
-	{{ page.header.event.ticket_price }}
-	{% endif %}
-</div>
+	<div>Eintritt
+		{% if page.header.event.ticket_link != "" %}
+			<a href="{{page.header.event.ticket_link}}" target="_blank">
+				{{ page.header.event.ticket_price }}
+			</a>
+		{% else %}
+			{{ page.header.event.ticket_price }}
+		{% endif %}
+	</div>
 {% elseif page.header.event.ticket_show == "free" %}
-<div>Freier Eintritt</div>
+	<div>Freier Eintritt</div>
 {% endif %}

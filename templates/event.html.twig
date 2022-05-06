@@ -10,7 +10,6 @@
 			{% include 'partials/event/categories.html.twig' %}
 			<h1 class="event-title">{{ page.title }}</h1>
 			{% include 'partials/event/meta.html.twig' %}
-			{% include 'partials/event/ticket.html.twig' %}
 		</header>
 		{% if 'Utopia Film Festival' in page.taxonomy.category %}
 			<section class="event">
@@ -26,7 +25,7 @@
 			{% endif %}
 			<section class="event">
 				<div class="event-content">{{ page.content }}</div>
-				{% include 'partials/event_meta.html.twig' with { 'page': page } %}
+				{# {% include 'partials/event_meta.html.twig' with { 'page': page } %} #}
 			</section>
 		{% endif %}
 	</article>
