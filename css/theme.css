@@ -275,6 +275,12 @@ ol {
   margin: 1rem 0;
 }
 
+.credit {
+  float: right;
+  margin-right: 25px;
+  margin-top: -40px;
+}
+
 form {
   /** Reset some defaults for Quark Theme **/
 }
