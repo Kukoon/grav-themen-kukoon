@@ -749,10 +749,10 @@ body.sticky-footer #page-wrapper {
   top: auto;
   bottom: 120%;
 }
-#footer #newsletter-form .buttons {
+#footer #newsletter-form-de .buttons {
   margin-top: 0.5rem;
 }
-#footer #newsletter-form .buttons > .button {
+#footer #newsletter-form-de .buttons > .button {
   background: #770702;
   border-color: #680602;
   color: #fff;
@@ -765,20 +765,52 @@ body.sticky-footer #page-wrapper {
   border: 1px solid;
   border-color: #fff;
 }
-#footer #newsletter-form .buttons > .button:focus, #footer #newsletter-form .buttons > .button:hover {
+#footer #newsletter-form-de .buttons > .button:focus, #footer #newsletter-form-de .buttons > .button:hover {
   background: #5e0602;
   border-color: #4f0501;
   color: #fff;
 }
-#footer #newsletter-form .buttons > .button:active, #footer #newsletter-form .buttons > .button.active {
+#footer #newsletter-form-de .buttons > .button:active, #footer #newsletter-form-de .buttons > .button.active {
   background: #540501;
   border-color: #450401;
   color: #fff;
 }
-#footer #newsletter-form .buttons > .button:hover {
+#footer #newsletter-form-de .buttons > .button:hover {
   background: #770702;
 }
-#footer #newsletter-form > div:first-child {
+#footer #newsletter-form-de > div:first-child {
+  margin-bottom: 0.5rem;
+}
+#footer #newsletter-form-en .buttons {
+  margin-top: 0.5rem;
+}
+#footer #newsletter-form-en .buttons > .button {
+  background: #770702;
+  border-color: #680602;
+  color: #fff;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  border-radius: 3px;
+  padding: 5px 10px;
+  background: unset;
+  color: #fff;
+  border: 1px solid;
+  border-color: #fff;
+}
+#footer #newsletter-form-en .buttons > .button:focus, #footer #newsletter-form-en .buttons > .button:hover {
+  background: #5e0602;
+  border-color: #4f0501;
+  color: #fff;
+}
+#footer #newsletter-form-en .buttons > .button:active, #footer #newsletter-form-en .buttons > .button.active {
+  background: #540501;
+  border-color: #450401;
+  color: #fff;
+}
+#footer #newsletter-form-en .buttons > .button:hover {
+  background: #770702;
+}
+#footer #newsletter-form-en > div:first-child {
   margin-bottom: 0.5rem;
 }
 

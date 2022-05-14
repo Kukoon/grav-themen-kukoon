@@ -35,14 +35,15 @@
 			<section class="event">
 				<div class="event-content">{{ page.content }}</div>
 				{# {% include 'partials/event_meta.html.twig' with { 'page': page } %} #}
-				{% if 'im Park 🌳🎪' in page.taxonomy.category %}
-				</br>
-				<p>
-					<small>
-						<i>{{ t("THEME_KUKOON.EVENT.SUPPORTEDBY")|e }}:</i>
-					</small>
-				</p>
-				<img src="{{ url('theme://images/sponsors/191215_Logo_Beirat_Neustadt_xs.png') }}" alt="Beirat Neustadt Logo"/>
+			</br>
+			<p>
+				<small>
+					<i>{{ t("THEME_KUKOON.EVENT.SUPPORTEDBY")|e }}:</i>
+				</small>
+			</p>
+			<img src="{{ url('theme://images/sponsors/Logo-Senator-Kultur-237x40.png') }}" alt="Senator für Kultur Logo"/>
+			{% if 'im Park 🌳🎪' in page.taxonomy.category %}
+				<img src="{{ url('theme://images/sponsors/Logo_Beirat_Neustadt_154x40.png') }}" alt="Beirat Neustadt Logo"/>
 			{% endif %}
 		</section>
 	{% endif %}

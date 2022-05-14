@@ -85,7 +85,7 @@ body.sticky-footer {
 		bottom: 120%;
 	}
 
-	#newsletter-form {
+	#newsletter-form-de {
 		.buttons {
 			margin-top: 0.5rem
 		}
@@ -105,7 +105,31 @@ body.sticky-footer {
 			}
 		}
 	}
-	#newsletter-form > div:first-child {
+	#newsletter-form-de > div:first-child {
+		margin-bottom: 0.5rem
+	}
+		#newsletter-form-en {
+		.buttons {
+			margin-top: 0.5rem
+		}
+		.buttons > .button {
+			@include button-primary;
+			font-size: 0.8rem;
+			line-height: 1.5;
+			border-radius: 3px;
+			padding: 5px 10px;
+			background: unset;
+			color: #fff;
+			border: 1px solid;
+			border-color: #fff;
+
+			&:hover {
+				background: $primary-color;
+			}
+		}
+	}
+
+#newsletter-form-en > div:first-child {
 		margin-bottom: 0.5rem
 	}
 }
