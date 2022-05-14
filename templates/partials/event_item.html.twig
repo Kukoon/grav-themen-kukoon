@@ -17,18 +17,31 @@
 			</div>
 		</div>
 		<!-- TODO: Generalize this -->
-		<div class="event-card-body">
-			{% set category = page.taxonomy.category|first %}
+		<div
+			class="event-card-body">
+			<!-- Make sure page category is supported and listed in kukoon.yaml-->
+			{% set supported = [] %}
+			{% for category in theme.category_images %}
+				{% for pCategory in page.taxonomy.category %}
+					{% if pCategory == category.label %}
+						{% set supported = supported|merge([category])%}
+
+					{% endif %}
+				{% endfor %}
+			{% endfor %}
+			{{ dump(supported) }}
+
+
+			<!-- Use first supported category -->
+			{% set category = supported|first %}
+
 			{% if 'Utopia Film Festival' in page.taxonomy.category %}
-				<a href="{% if event %}{{ event.parent.url|regex_replace(['/utopia-film-festival/'], [''])|rtrim('/') }}{% else %}{{ page.parent.url|regex_replace(['/utopia-film-festival/'], [''])|rtrim('/') }}{% endif %}/all/category{{ config.system.param_sep }}{{ category }}">
-
-
-					<img src="/user/themes/kukoon/images/category/{{ category }}.jpg" alt="{{ category }}" style="height: 48px; margin-top: 2px"/>
+				<a href="{% if event %}{{ event.parent.url|regex_replace(['/utopia-film-festival/'], [''])|rtrim('/') }}{% else %}{{ page.parent.url|regex_replace(['/utopia-film-festival/'], [''])|rtrim('/') }}{% endif %}/all/category{{ config.system.param_sep }}{{ category.label }}">
+					<img src="/user/themes/kukoon/images/category/{{ category.label }}.jpg" alt="{{ category.label }}" style="height: 48px; margin-top: 2px"/>
 				</a>
 			{% else %}
-				<a href="{% if event %}{{ event.parent.url|rtrim('/') }}{% else %}{{page.parent.url|rtrim('/')}}{% endif %}/all/category{{ config.system.param_sep }}{{ category }}">
-					<img src="/user/themes/kukoon/images/category/{{ category }}.jpg" alt="{{ category }}" style="height: 48px; margin-top: 2px"/>
-
+				<a href="{% if event %}{{ event.parent.url|rtrim('/') }}{% else %}{{page.parent.url|rtrim('/')}}{% endif %}/all/category{{ config.system.param_sep }}{{ category.label }}">
+					<img src="/user/themes/kukoon/images/category/{{ category.label }}.jpg" alt="{{ category.label }}" style="height: 48px; margin-top: 2px"/>
 				</a>
 			{% endif %}
 			<div class="float-right text-right">

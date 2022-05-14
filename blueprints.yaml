@@ -26,6 +26,21 @@ form:
         0: PLUGIN_ADMIN.DISABLED
       validate:
         type: bool
+    
+    category_images:
+      type: list
+      label: Category Images
+      help: Needs to be an image file ending with *.jpg
+      fields:
+        .icon:
+          type: file
+          label: Icon
+          destination: 'theme://assets'
+          accept:
+            - image/*
+        .label:
+          type: text
+          label: Label
 
     # footers:
     #   type: list
