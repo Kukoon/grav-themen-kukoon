@@ -37,8 +37,15 @@
 			<section class="event">
 				<div class="event-content">{{ page.content }}</div>
 				{# {% include 'partials/event_meta.html.twig' with { 'page': page } %} #}
-			</section>
-		{% endif %}
-	</article>
-
-{% endblock %}
+				{% if 'im Park 🌳🎪' in page.taxonomy.category %}
+				</br>
+				<p>
+					<small>
+						<i>Gefördet durch:</i>
+					</small>
+				</p>
+				<img src="{{ url('theme://images/sponsors/191215_Logo_Beirat_Neustadt_xs.png') }}" alt="Beirat Neustadt Logo"/>
+			{% endif %}
+		</section>
+	{% endif %}
+</article>{% endblock %}
