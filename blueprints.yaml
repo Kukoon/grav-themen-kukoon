@@ -45,6 +45,86 @@ form:
           type: editor
           label: Spalte
 
+    opening-hours-en:
+      type: list
+      label: Opening Hours (english)
+      fields:
+        .enabled:
+          type: toggle
+          highlight: 1
+          default: 1
+          options:
+            1: PLUGIN_ADMIN.ENABLED
+            0: PLUGIN_ADMIN.DISABLED
+          validate:
+            type: bool
+        .box:
+          type: editor
+
+    opening-hours-de:
+      type: list
+      label: Öffnungszeiten (deutsch)
+      fields:
+        .enabled:
+          type: toggle
+          highlight: 1
+          default: 1
+          options:
+            1: PLUGIN_ADMIN.ENABLED
+            0: PLUGIN_ADMIN.DISABLED
+          validate:
+            type: bool
+        .box:
+          type: editor
+
+    contact:
+      type: list
+      label: Kontakt
+      fields:
+        .enabled:
+          type: toggle
+          highlight: 1
+          default: 1
+          options:
+            1: PLUGIN_ADMIN.ENABLED
+            0: PLUGIN_ADMIN.DISABLED
+          validate:
+            type: bool
+        .box:
+          type: editor
+
+    support-en:
+      type: list
+      label: Support (English)
+      fields:
+        .enabled:
+          type: toggle
+          highlight: 1
+          default: 1
+          options:
+            1: PLUGIN_ADMIN.ENABLED
+            0: PLUGIN_ADMIN.DISABLED
+          validate:
+            type: bool
+        .box:
+          type: editor
+
+    support-de:
+      type: list
+      label: Unterstützung (Deutsch)
+      fields:
+        .enabled:
+          type: toggle
+          highlight: 1
+          default: 1
+          options:
+            1: PLUGIN_ADMIN.ENABLED
+            0: PLUGIN_ADMIN.DISABLED
+          validate:
+            type: bool
+        .box:
+          type: editor
+
     footers-social:
       type: list
       label: Social in Footer
@@ -61,8 +141,6 @@ form:
         .label:
           type: text
           label: Label
-
-
 
     menu.bottom:
       type: list

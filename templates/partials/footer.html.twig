@@ -1,13 +1,58 @@
 <section id="footer" class="bg-secondary">
 	<div class="container {{ grid_size }}">
 		<div class="columns">
-			{% for footer in theme_var('footers') %}
-				{% if footer.enabled %}
-					<div class="column col-lg-auto">
-						{{ footer.box | markdown }}
-					</div>
-				{% endif %}
-			{% endfor %}
+			{% if grav.language.getLanguage == 'en' %}
+				<div class="column col-lg-auto">
+					{% for footer in theme_var('opening-hours-en') %}
+						{% if footer.enabled %}
+							<h4>{{ t("THEME_KUKOON.FOOTER.OPENING_HOURS")|e }}</h4>
+							{{ footer.box | markdown }}
+						{% endif %}
+					{% endfor %}
+				</div>
+			{% elseif grav.language.getLanguage == 'de'  %}
+				<div class="column col-lg-auto">
+					{% for footer in theme_var('opening-hours-de') %}
+						{% if footer.enabled %}
+							<h4>{{ t("THEME_KUKOON.FOOTER.OPENING_HOURS")|e }}</h4>
+							{{ footer.box | markdown }}
+							{{ opening_hours_table() }}
+						{% endif %}
+					{% endfor %}
+				</div>
+			{% endif %}
+			{% if grav.language.getLanguage == 'en' %}
+				<div class="column col-lg-auto">
+					{% for footer in theme_var('contact') %}
+						{% if footer.enabled %}
+							<h4>{{ t("THEME_KUKOON.FOOTER.CONTACT")|e }}</h4>
+							{{ footer.box | markdown }}
+						{% endif %}
+					{% endfor %}
+					{% for footer in theme_var('support-en') %}
+						{% if footer.enabled %}
+							<h4>{{ t("THEME_KUKOON.FOOTER.SUPPORT")|e }}</h4>
+							{{ footer.box | markdown }}
+						{% endif %}
+					{% endfor %}
+				</div>
+			{% elseif grav.language.getLanguage == 'de'  %}
+				<div class="column col-lg-auto">
+					{% for footer in theme_var('contact') %}
+						{% if footer.enabled %}
+							<h4>{{ t("THEME_KUKOON.FOOTER.CONTACT")|e }}</h4>
+							{{ footer.box | markdown }}
+						{% endif %}
+					{% endfor %}
+					{% for footer in theme_var('support-de') %}
+						{% if footer.enabled %}
+							<h4>{{ t("THEME_KUKOON.FOOTER.SUPPORT")|e }}</h4>
+							{{ footer.box | markdown }}
+						{% endif %}
+					{% endfor %}
+				</div>
+			{% endif %}
+
 			<div class="column col-lg-auto">
 				<h4>{{ t("THEME_KUKOON.FOOTER.NEWSLETTER")|e }}</h4>
 				{% include "forms/form.html.twig" with { form: forms('newsletter-form') } %}

@@ -22,7 +22,10 @@ en:
       SYNDICATE:
         HEADLINE: Syndicate
     FOOTER:
-      SOCIAL: Social
+      OPENING_HOURS: Opening Hours
+      CONTACT: Contact
+      SUPPORT: Donate
+      SOCIAL: Social Media
       NEWSLETTER: Newsletter
       LANG: Language
     EVENT:
@@ -52,9 +55,12 @@ de:
       SYNDICATE:
         HEADLINE: Abonnements
     FOOTER:
-      SOCIAL: Social
+      OPENING_HOURS: Öffnungszeiten
+      CONTACT: Kontakt
+      SUPPORT: Spenden
+      SOCIAL: Social Media
       NEWSLETTER: Newsletter
-      LANG: Language
+      LANG: Sprache
     EVENT:
       SUPPORTEDBY: Gefördert durch
 
