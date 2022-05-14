@@ -1,57 +1,51 @@
 <section id="footer" class="bg-secondary">
-		<div class="container {{ grid_size }}">
-			<div class="columns">
-				{% for footer in theme_var('footers') %}
-					{% if footer.enabled %}
-						<div class="column col-lg-auto">
-							{{ footer.box | markdown }}
-						</div>
-					{% endif %}
-				{% endfor %}
-				<div class="column col-lg-auto">
-					<h4>Newsletter</h4>
-					{% include "forms/form.html.twig" with { form: forms('newsletter-form') } %}
-					<h4>Social</h4>
-					<div class="social">
+	<div class="container {{ grid_size }}">
+		<div class="columns">
+			{% for footer in theme_var('footers') %}
+				{% if footer.enabled %}
+					<div class="column col-lg-auto">
+						{{ footer.box | markdown }}
+					</div>
+				{% endif %}
+			{% endfor %}
+			<div class="column col-lg-auto">
+				<h4>{{ t("THEME_KUKOON.FOOTER.NEWSLETTER")|e }}</h4>
+				{% include "forms/form.html.twig" with { form: forms('newsletter-form') } %}
+				<h4>{{ t("THEME_KUKOON.FOOTER.SOCIAL")|e }}</h4>
+				<div class="social">
 					{% for item in theme_var('footers-social') %}
 						<a href="{{ item.url }}" target="_blank">
-						{% if item.icon %}
-							{% set icon = (item.icon|first) %}
-							{% if "svg" in icon.type %}
-								<!-- img src="{{ url('theme://assets/' ~ icon.name)  }}" alt="{{ item.label }}" /-->
-								{{ svg_image('theme://assets/' ~ icon.name) }}
+							{% if item.icon %}
+								{% set icon = (item.icon|first) %}
+								{% if "svg" in icon.type %}
+									<!-- img src="{{ url('theme://assets/' ~ icon.name)  }}" alt="{{ item.label }}" /-->
+									{{ svg_image('theme://assets/' ~ icon.name) }}
+								{% else %}
+									<img src="{{ url('theme://assets/' ~ icon.name) }}" alt="{{ item.label }}"/>
+								{% endif %}
+								<span>{{ item.label|capitalize }}</span>
 							{% else %}
-								<img src="{{ url('theme://assets/' ~ icon.name)  }}" alt="{{ item.label }}" />
+								<span>{{ item.label|capitalize }}</span>
 							{% endif %}
-							<span>{{ item.label|capitalize }}</span>
-						{% else %}
-							<span>{{ item.label|capitalize }}</span>
-						{% endif %}
 						</a>
-                        {% if not loop.last %}
-                            </br>
-                        {% endif %}
-					{% endfor %}
-					</div>
-					<h4>Sprache</h4>
-					{% include 'partials/language-selector.html.twig' %}
-				</div>
+						{% if not loop.last %}
+						</br>
+					{% endif %}
+				{% endfor %}
 			</div>
+			<h4>{{ t("THEME_KUKOON.FOOTER.LANG")|e }}</h4>
+			{% include 'partials/language-selector.html.twig' %}
 		</div>
 	</div>
-</section>
-<section class="section footer-menu">
-	<section class="container {{ grid_size }}">
-		<nav class="navbar">
-			<section class="navbar-section"></section>
-			<section class="navbar-center">
-				{% for p in theme_var('menu.bottom')  %}
-					{% set page = pages.find(p.page) %}
-					{% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
-					<a class="btn btn-link {{ current_page }}" href="{{ page.url }}">{{ page.menu }}</a>
-				{% endfor %}
-			</section>
-			<section class="navbar-section"></section>
-		</nav>
+</div></div></section><section class="section footer-menu"><section class="container {{ grid_size }}">
+<nav class="navbar">
+	<section class="navbar-section"></section>
+	<section class="navbar-center">
+		{% for p in theme_var('menu.bottom')  %}
+			{% set page = pages.find(p.page) %}
+			{% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
+			<a class="btn btn-link {{ current_page }}" href="{{ page.url }}">{{ page.menu }}</a>
+		{% endfor %}
 	</section>
-</section>
+	<section class="navbar-section"></section>
+</nav></section></section>

@@ -3,8 +3,6 @@
 {% set show_sidebar = header_var('show_sidebar', [page, blog])|defined(true)  %}
 
 {% block content %}
-
-
 	<article class="event-article">
 		<header class="event-header">
 			{% include 'partials/event/categories.html.twig' %}
@@ -41,7 +39,7 @@
 				</br>
 				<p>
 					<small>
-						<i>Gefördet durch:</i>
+						<i>{{ t("THEME_KUKOON.EVENT.SUPPORTEDBY")|e }}</i>
 					</small>
 				</p>
 				<img src="{{ url('theme://images/sponsors/191215_Logo_Beirat_Neustadt_xs.png') }}" alt="Beirat Neustadt Logo"/>

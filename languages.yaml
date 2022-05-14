@@ -21,6 +21,12 @@ en:
         HEADLINE: Archives
       SYNDICATE:
         HEADLINE: Syndicate
+    FOOTER:
+      SOCIAL: Social
+      NEWSLETTER: Newsletter
+      LANG: Language
+    EVENT:
+      SUPPORTEDBY: Supported by
 
 de:
   THEME_KUKOON:
@@ -45,6 +51,12 @@ de:
         HEADLINE: Archiv
       SYNDICATE:
         HEADLINE: Abonnements
+    FOOTER:
+      SOCIAL: Social
+      NEWSLETTER: Newsletter
+      LANG: Language
+    EVENT:
+      SUPPORTEDBY: Gefördert durch
 
 es:
   THEME_KUKOON:
