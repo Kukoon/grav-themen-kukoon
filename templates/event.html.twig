@@ -41,10 +41,13 @@
 					<i>{{ t("THEME_KUKOON.EVENT.SUPPORTEDBY")|e }}:</i>
 				</small>
 			</p>
-			<img src="{{ url('theme://images/sponsors/Logo-Senator-Kultur-237x40.png') }}" alt="Senator für Kultur Logo"/>
 			{% if 'im Park 🌳🎪' in page.taxonomy.category %}
 				<img src="{{ url('theme://images/sponsors/Logo_Beirat_Neustadt_154x40.png') }}" alt="Beirat Neustadt Logo"/>
 			{% endif %}
+			{% if 'Open/Closed' in page.taxonomy.category %}
+				<img src="{{ url('theme://images/sponsors/IniMusik_logo_kurz_72dpi_color_102x60.jpg') }}" alt="Initiative Musik Logo"/>
+			{% endif %}
+			<img src="{{ url('theme://images/sponsors/Logo-Senator-Kultur-237x40.png') }}" alt="Senator für Kultur Logo"/>
 		</section>
 	{% endif %}
 </article>{% endblock %}
