@@ -1,0 +1,33 @@
+{% set collection = page.collection({
+      'items': {
+        '@taxonomy': {
+					'category': 'Open/Closed Festival',
+        },
+      },
+			'dateRange': {
+        'start': datetools.today|date('m/d/Y')
+      },
+      'order': {
+        'by': 'date',
+        'dir': 'asc'
+      },
+}) %}
+
+{% block body %}
+	{{ page.content|raw }}
+	{% embed 'partials/layout.html.twig' with { page: blog} %}
+
+		{% block item %}
+
+			<div>
+				{% if collection|length != 0 %}
+					{% for event in collection %}
+						{% include 'partials/open-closed-event-list-item.html.twig' with {page: event} %}
+
+
+					{% endfor %}
+				{% endif %}
+			</div>
+		{% endblock %}
+	{% endembed %}
+{% endblock %}
