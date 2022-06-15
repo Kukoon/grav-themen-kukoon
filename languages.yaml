@@ -30,6 +30,7 @@ en:
       LANG: Language
     EVENT:
       SUPPORTEDBY: Supported by
+      LANGUAGE: Language
 
 de:
   THEME_KUKOON:
@@ -63,6 +64,8 @@ de:
       LANG: Sprache
     EVENT:
       SUPPORTEDBY: Gefördert durch
+      LANGUAGE: Sprache
+
 
 es:
   THEME_KUKOON:

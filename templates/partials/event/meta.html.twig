@@ -29,7 +29,10 @@
 			{{page.header.metadata.Duration}}
 		{% endif %}
 		{% if page.header.metadata.Language %}
-			|
+			<span>
+				|
+				{{ t("THEME_KUKOON.EVENT.LANGUAGE")|e }}:
+			</span>
 			{{page.header.metadata.Language}}
 		{% endif %}
 	</time>
