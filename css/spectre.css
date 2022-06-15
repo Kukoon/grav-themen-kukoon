@@ -2294,6 +2294,14 @@ summary.accordion-header::-webkit-details-marker {
   border-bottom-right-radius: 0.1rem;
 }
 
+.card-festival {
+  padding-bottom: 1.2rem;
+  border-bottom: 4px dotted #ddd;
+  margin-bottom: 0.3rem;
+  display: flex;
+  flex-direction: column;
+}
+
 .chip {
   align-items: center;
   background: #f7f7f7;
