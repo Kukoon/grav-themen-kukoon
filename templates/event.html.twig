@@ -20,17 +20,18 @@
 			{% set image = page.media.images|first %}
 			{% if image != null %}
 				<div class="title-img">
-					{{ image.cropResize(960,1700).html("Veranstaltung: "~page.title, page.title, "img-response") }}
-					{% if image.meta.credit %}
-						<span class="credit">
-							<small>
-								<i>Credit:
-									{{ image.meta.credit }}
-								</i>
-							</small>
-						</span>
-					{% endif %}
+					{{ image.cropResize(960,1700).html("Veranstaltung: "~page.title, page.title, "img-responsive") }}
 				</div>
+				{% if image.meta.credit %}
+					<span class="credit" style="margin-top: -22px !important;">
+
+						<small>
+							<i>Credit:
+								{{ image.meta.credit }}
+							</i>
+						</small>
+					</span>
+				{% endif %}
 			{% endif %}
 			<section class="event">
 				<div class="event-content">{{ page.content }}</div>
