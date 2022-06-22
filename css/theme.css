@@ -128,26 +128,35 @@ html {
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin-top: 2rem;
   font-family: Overpass, "Helvetica Neue", sans-serif;
   color: black;
 }
 
-h1, .h1 {
+h1,
+.h1 {
   font-size: 3rem;
 }
 
-h2, .h2 {
+h2,
+.h2 {
   font-size: 1.8rem;
   margin-bottom: 0.4rem;
 }
 
-h6, .h6 {
+h6,
+.h6 {
   font-weight: 400;
 }
 
-.title-center h1, .title-center h2 {
+.title-center h1,
+.title-center h2 {
   text-align: center;
 }
 
@@ -156,7 +165,8 @@ h6, .h6 {
   margin-bottom: 0;
   line-height: 1.1;
 }
-.title-h1h2 h1 strong, .title-h1h2 h1 bold {
+.title-h1h2 h1 strong,
+.title-h1h2 h1 bold {
   font-weight: 400;
 }
 .title-h1h2 h1 + h2 {
@@ -164,13 +174,16 @@ h6, .h6 {
   margin-top: 0;
 }
 
-.title-h1h2 h1 + h2, .title-center h1 + h2 {
+.title-h1h2 h1 + h2,
+.title-center h1 + h2 {
   font-weight: 700;
 }
-.title-h1h2 h1, .title-center h1 {
+.title-h1h2 h1,
+.title-center h1 {
   margin-bottom: 50px;
 }
-.title-h1h2 h2, .title-center h2 {
+.title-h1h2 h2,
+.title-center h2 {
   margin-bottom: 20px;
 }
 
@@ -189,7 +202,8 @@ img {
   width: 100%;
 }
 
-pre code, pre.xdebug-var-dump {
+pre code,
+pre.xdebug-var-dump {
   background: #fafafa;
   display: block;
   padding: 1rem !important;
@@ -229,7 +243,12 @@ strong {
 .text-light {
   color: rgba(255, 255, 255, 0.8);
 }
-.text-light h1, .text-light h2, .text-light h3, .text-light h4, .text-light h5, .text-light h6 {
+.text-light h1,
+.text-light h2,
+.text-light h3,
+.text-light h4,
+.text-light h5,
+.text-light h6 {
   color: rgba(255, 255, 255, 0.9);
 }
 
@@ -280,7 +299,6 @@ ol {
   margin-top: -30px;
   display: flex;
   flex-direction: row-reverse;
-  margin-bottom: 12px;
 }
 
 form {
@@ -1138,6 +1156,10 @@ ul.pagination {
 
 .meta-info {
   padding: 0.04rem 0;
+}
+
+.event-content {
+  margin-top: 1rem;
 }
 
 /*# sourceMappingURL=theme.css.map */
