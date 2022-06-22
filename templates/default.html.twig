@@ -1,7 +1,10 @@
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
-	<h1 class="text-primary">{{ page.title }}</h1>
+	{% if page.title != 'OPEN/CLOSED Festival' %}
+		<h1 class="text-primary">{{ page.title }}</h1>
+	{% endif %}
+
 	{{ page.content|raw }}
 
 	{% for module in page.collection() %}

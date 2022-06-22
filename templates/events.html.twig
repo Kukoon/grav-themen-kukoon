@@ -27,22 +27,22 @@
 
 	{{ page.content|raw }}
 
-<div class="columns">
-	{% if collection|length != 0 %}
-		{% for event in collection %}
-			{% include 'partials/event_item.html.twig' with { 'page': event, 'truncate': true, 'single': false } %}
-		{% endfor %}
-	{% else %}
-		<h3>{{ "PLUGIN_EVENTS.EVENTS.NO_EVENTS_TITLE"|t }}</h3>
-		<p>{{ ("PLUGIN_EVENTS.EVENTS.NO_EVENTS_CONTENT"|t(uri.param('category')))|markdown }}</p>
-	{% endif %}
-</div>
+	<div class="columns">
+		{% if collection|length != 0 %}
+			{% for event in collection %}
+				{% include 'partials/event_item.html.twig' with { 'page': event, 'truncate': true, 'single': false } %}
+			{% endfor %}
+		{% else %}
+			<h3>{{ "PLUGIN_EVENTS.EVENTS.NO_EVENTS_TITLE"|t }}</h3>
+			<p>{{ ("PLUGIN_EVENTS.EVENTS.NO_EVENTS_CONTENT"|t(uri.param('category')))|markdown }}</p>
+		{% endif %}
+	</div>
 
-{# Render the pagination list #}
-{% if show_pagination and config.plugins.pagination.enabled and collection.params.pagination %}
-<div id="listing-footer">
-    {% include 'partials/pagination.html.twig' with { base_url: page.url, pagination: collection.params.pagination } %}
-</div>
-{% endif %}
+	{# Render the pagination list #}
+	{% if show_pagination and config.plugins.pagination.enabled and collection.params.pagination %}
+		<div id="listing-footer">
+			{% include 'partials/pagination.html.twig' with { base_url: page.url, pagination: collection.params.pagination } %}
+		</div>
+	{% endif %}
 
 {% endblock %}
