@@ -8,9 +8,8 @@
 				</span>
 			</a>
 		{% else %}
-			<a href="{% if event %}{{ event.parent.url|rtrim('/') }}{% else %}{{page.parent.url|rtrim('/')}}{% endif %}/all/category{{ config.system.param_sep }}{{ category }}">
+			<a href="{% if event %}{{ event.parent.url|strtok('/') }}/events{% else %}{{page.parent.url|rtrim('/')}}{% endif %}/all/category{{ config.system.param_sep }}{{ category }}">
 				<span class="chip" style="font-size: 70% !important">
-
 					{{ category }}
 				</span>
 			</a>
