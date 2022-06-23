@@ -20,7 +20,8 @@
 	{% include 'partials/breadcrumbs.html.twig' %}
 {% endif %}
 
-<h2 class="text-primary">{{ page.title }}</h2>
+<h2 class="text-primary" style="font-weight: 600">{{ page.title|upper }}</h2>
+
 
 {{ page.content|raw }}
 
