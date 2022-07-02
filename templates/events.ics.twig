@@ -1,0 +1,31 @@
+{% set collection = page.collection({
+      'items': {
+        '@taxonomy': {
+          'type': 'event',
+        }
+      },
+      'order': {
+        'by': 'date',
+        'dir': 'desc'
+      },
+}) %}BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//hacksw/handcal//NONSGML v1.0//EN
+{% for page in collection %}
+BEGIN:VEVENT
+UID:{{page.url}}
+ZOFFSETFROM:{{ page.header.date | date("O") }}
+DTSTAMP:{{ page.header.date | date("Ymd\\THis") }}
+DTSTART:{{ page.header.event.start | date("Ymd\\THis")  }}
+DTEND:{{ page.header.event.end | date("Ymd\\THis") }}
+{% switch page.header.event.status %}
+{% case "scheduled" %}
+STATUS:CONFIRMED
+{% endswitch %}
+SUMMARY:{{ page.title }}
+CATEGORIES:{{ page.header.taxonomy.category | join(',') }}
+IMAGE;VALUE=URI;DISPLAY=BADGE:{{ url((page.media.images|first).url, true) }}
+URL:{{ page.url(true) }}
+END:VEVENT
+{% endfor %}
+END:VCALENDAR
