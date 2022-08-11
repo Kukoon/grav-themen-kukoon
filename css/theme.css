@@ -902,9 +902,9 @@ body.sticky-footer #page-wrapper {
   display: block;
   visibility: visible;
 }
-.dropmenu ul ul li a:before {
+/* .dropmenu ul ul li a:before {
   content: "";
-}
+} */
 .dropmenu ul ul {
   position: absolute;
   top: 100%;
