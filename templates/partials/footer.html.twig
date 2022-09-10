@@ -55,11 +55,7 @@
 
 			<div class="column col-lg-auto">
 				<h4>{{ t("THEME_KUKOON.FOOTER.NEWSLETTER")|e }}</h4>
-				{% if grav.language.getLanguage == 'en' %}
-					{% include "forms/form.html.twig" with { form: forms('newsletter-form-en') } %}
-				{% elseif grav.language.getLanguage == 'de'  %}
-					{% include "forms/form.html.twig" with { form: forms('newsletter-form-de') } %}
-				{% endif %}
+					{% include 'partials/subscribe-btn.html.twig' %}
 				<h4>{{ t("THEME_KUKOON.FOOTER.SOCIAL")|e }}</h4>
 				<div class="social">
 					{% for item in theme_var('footers-social') %}

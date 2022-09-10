@@ -740,10 +740,35 @@ body.sticky-footer #page-wrapper {
   vertical-align: middle;
   padding: 0.1rem;
 }
+#footer .subscribe-btn {
+  float: unset;
+  top: unset;
+}
+#footer .subscribe-btn .btn {
+  background: #770702;
+  border-color: #680602;
+  color: #fff;
+  background: unset;
+  border-color: #fff;
+  font-size: 0.8rem;
+}
+#footer .subscribe-btn .btn:focus, #footer .subscribe-btn .btn:hover {
+  background: #5e0602;
+  border-color: #4f0501;
+  color: #fff;
+}
+#footer .subscribe-btn .btn:active, #footer .subscribe-btn .btn.active {
+  background: #540501;
+  border-color: #450401;
+  color: #fff;
+}
+#footer .subscribe-btn .btn:hover {
+  background: #770702;
+}
 #footer .language-selector {
   float: unset;
   top: unset;
-  margin: 1.2em 0 !important;
+  margin: 0.8em 0 !important;
 }
 #footer .language-selector .btn {
   background: #770702;
@@ -902,9 +927,6 @@ body.sticky-footer #page-wrapper {
   display: block;
   visibility: visible;
 }
-/* .dropmenu ul ul li a:before {
-  content: "";
-} */
 .dropmenu ul ul {
   position: absolute;
   top: 100%;

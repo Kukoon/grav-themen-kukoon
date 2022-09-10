@@ -64,10 +64,25 @@ body.sticky-footer {
 			padding: 0.1rem;
 		}
 	}
+	.subscribe-btn {
+		float: unset;
+		top: unset;
+
+		.btn {
+				@include button-primary;
+				background: unset;
+				border-color:#fff;
+				font-size: 0.8rem;
+
+				&:hover {
+					background: $primary-color;
+				}
+		}
+	}
 	.language-selector {
 		float: unset;
 		top: unset;
-		margin: 1.2em 0 !important;
+		margin: 0.8em 0 !important;
 
 		.btn {
 			@include button-primary;

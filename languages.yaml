@@ -28,6 +28,7 @@ en:
       SOCIAL: Social Media
       NEWSLETTER: Newsletter
       LANG: Language
+      SUBSCRIBE: Subscribe
     EVENT:
       SUPPORTEDBY: Supported by
       LANGUAGE: Language
@@ -62,6 +63,7 @@ de:
       SOCIAL: Social Media
       NEWSLETTER: Newsletter
       LANG: Sprache
+      SUBSCRIBE: Abonnieren
     EVENT:
       SUPPORTEDBY: Gefördert durch
       LANGUAGE: Sprache
