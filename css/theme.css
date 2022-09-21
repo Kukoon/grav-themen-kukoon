@@ -1180,6 +1180,10 @@ ul.pagination {
 
 .event-title {
   margin-top: 0.6rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 2.6rem;
+  font-style: italic;
 }
 
 .meta-info {
