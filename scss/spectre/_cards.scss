@@ -1,51 +1,58 @@
 // Cards
 .card {
-  background: $bg-color-light;
-  border: $border-width solid $border-color;
-  border-radius: $border-radius;
-  display: flex;
-  flex-direction: column;
+	background: $bg-color-light;
+	border: $border-width solid $border-color;
+	border-radius: $border-radius;
+	display: flex;
+	flex-direction: column;
 
-  .card-header,
-  .card-body,
-  .card-footer {
-    padding: $layout-spacing-lg;
-    padding-bottom: 0;
+	.card-header,
+	.card-body,
+	.card-footer {
+		padding: $layout-spacing-lg;
+		padding-bottom: 0;
 
-    &:last-child {
-      padding-bottom: $layout-spacing-lg;
-    }
-  }
+		&:last-child {
+			padding-bottom: $layout-spacing-lg;
+		}
+	}
 
-  .card-body {
-    flex: 1 1 auto;
-  }
+	.card-body {
+		flex: 1 1 auto;
+	}
 
-  .card-image {
-    padding-top: $layout-spacing-lg;
+	.card-image {
+		padding-top: $layout-spacing-lg;
 
-    &:first-child {
-      padding-top: 0;
+		&:first-child {
+			padding-top: 0;
 
-      img {
-        border-top-left-radius: $border-radius;
-        border-top-right-radius: $border-radius;
-      }
-    }
+			img {
+				border-top-left-radius: $border-radius;
+				border-top-right-radius: $border-radius;
+			}
+		}
 
-    &:last-child {
-      img {
-        border-bottom-left-radius: $border-radius;
-        border-bottom-right-radius: $border-radius;
-      }
-    }
-  }
+		&:last-child {
+			img {
+				border-bottom-left-radius: $border-radius;
+				border-bottom-right-radius: $border-radius;
+			}
+		}
+	}
 }
 
 .card-festival {
 	padding-bottom: 1.2rem;
-  border-bottom: 4px dotted $border-color;
+	border-bottom: 4px dotted $border-color;
 	margin-bottom: 0.3rem;
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
+}
+
+.card-footer-festival {
+	padding-bottom: 0.6rem;
+	border-bottom: 4px dotted $border-color;
+	display: flex;
+	flex-direction: column;
 }

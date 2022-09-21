@@ -2302,6 +2302,13 @@ summary.accordion-header::-webkit-details-marker {
   flex-direction: column;
 }
 
+.card-footer-festival {
+  padding-bottom: 0.6rem;
+  border-bottom: 4px dotted #ddd;
+  display: flex;
+  flex-direction: column;
+}
+
 .chip {
   align-items: center;
   background: #f7f7f7;

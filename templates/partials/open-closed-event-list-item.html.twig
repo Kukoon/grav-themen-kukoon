@@ -6,7 +6,7 @@
 </header>
 {% set image = page.media.images|first %}
 {% if image %}
-	<div class="card-festival">
+	<div class="card-image">
 		<div class="title-img">
 			<a href="{{ page.url }}" style="display: inline-block !important; height: 0px !important">{{ image.html|raw }}</a>
 		</div>
@@ -24,7 +24,7 @@
 	<div class="card-body">
 		{{ page.summary|raw }}
 	</div>
-	<div class="card-footer">
+	<div class="card-footer-festival">
 		{% include 'partials/blog/taxonomy.html.twig' %}
 	</div>
 </div>
