@@ -1,18 +1,26 @@
-{% if page.taxonomy.category and config.plugins.events.event_sidebar.enable_categories %}
-	{% for category in page.taxonomy.category %}
-		{% if 'Utopia Film Festival' in page.taxonomy.category %}
-			<a href="{% if event %}{{ event.parent.url|regex_replace(['/utopia-film-festival/'], [''])|rtrim('/') }}{% else %}{{ page.parent.url|regex_replace(['/utopia-film-festival/'], [''])|rtrim('/') }}{% endif %}/all/category{{ config.system.param_sep }}{{ category }}">
-				<span class="chip" style="font-size: 70% !important">
+<div class="d-flex">
+	<div class="meta-info d-flex">
+		{{ t("THEME_KUKOON.EVENT.CATEGORIES")|e }}:
 
-					{{ category }}
-				</span>
-			</a>
-		{% else %}
-			<a href="{% if event %}{{ app.request.baseUrl }}/{{ event.parent.url|strtok('/') }}/events{% else %}{{ app.request.baseUrl }}/{{ page.parent.url|strtok('/') }}/events{% endif %}/all/category{{ config.system.param_sep }}{{ category }}">
-				<span class="chip" style="font-size: 70% !important">
-					{{ category }}
-				</span>
-			</a>
+		{% if page.taxonomy.category and config.plugins.events.event_sidebar.enable_categories %}
+
+			{% for category in page.taxonomy.category %}
+				<div>
+					{% if 'Utopia Film Festival' in page.taxonomy.category %}
+						<a href="{% if event %}{{ event.parent.url|regex_replace(['/utopia-film-festival/'], [''])|rtrim('/') }}{% else %}{{ page.parent.url|regex_replace(['/utopia-film-festival/'], [''])|rtrim('/') }}{% endif %}/all/category{{ config.system.param_sep }}{{ category }}">
+							<span>
+								{{ category }}
+							</span>
+						</a>
+					{% else %}
+						<a href="{% if event %}{{ app.request.baseUrl }}/{{ event.parent.url|strtok('/') }}/events{% else %}{{ app.request.baseUrl }}/{{ page.parent.url|strtok('/') }}/events{% endif %}/all/category{{ config.system.param_sep }}{{ category }}">
+							<span>
+								{{ category }}
+							</span>
+						</a>
+					{% endif %}
+				</div>
+			{% endfor %}
 		{% endif %}
-	{% endfor %}
-{% endif %}
+	</div>
+</div>

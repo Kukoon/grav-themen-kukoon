@@ -33,6 +33,7 @@ en:
       SUPPORTEDBY: Supported by
       LANGUAGE: Language
       LOCATION: Location
+      CATEGORIES: Categories
 
 
 de:
@@ -70,6 +71,7 @@ de:
       SUPPORTEDBY: Gefördert durch
       LANGUAGE: Sprache
       LOCATION: Ort
+      CATEGORIES: Kategorien
 
 
 es:
