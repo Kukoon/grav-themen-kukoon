@@ -44,7 +44,7 @@
 					<img src="/user/themes/kukoon/images/category/{{ category.label }}.jpg" alt="{{ category.label }}" style="height: 48px; margin-top: 2px"/>
 				</a>
 			{% endif %}
-			<div class="float-right text-right">
+			<div class="meta-info-short float-right text-right">
 				{% if page.header.event.doors_open != null  and page.header.event.doors_open != page.header.event.start %}
 					<div>{{ page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) }}</div>
 					<div>

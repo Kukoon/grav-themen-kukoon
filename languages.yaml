@@ -32,6 +32,8 @@ en:
     EVENT:
       SUPPORTEDBY: Supported by
       LANGUAGE: Language
+      LOCATION: Location
+
 
 de:
   THEME_KUKOON:
@@ -67,6 +69,7 @@ de:
     EVENT:
       SUPPORTEDBY: Gefördert durch
       LANGUAGE: Sprache
+      LOCATION: Ort
 
 
 es:

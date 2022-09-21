@@ -1,49 +1,52 @@
-<div class="meta-info">
-	{% if page.header.event.doors_open != null and page.header.event.doors_open != page.header.event.start %}
-		{{ page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) }}
-		| Einlass
-		<time datetime="{{ page.header.event.doors_open|date("c") }}">
-			{{ page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.time) }}
-		</time>
-		|
-	{% else %}
-		{{ page.header.event.start|dateTranslate(config.plugins.events.event_item.date) }}
-		|
-	{% endif %}
-	Beginn
-	<time datetime="{{ page.header.event.start|date("c") }}">
-		{% if page.header.event.doors_open and page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) != page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) %}
-			{{ page.header.event.start|dateTranslate(config.plugins.events.event_item.date) }}
-		{% endif %}
-		{{ page.header.event.start|dateTranslate(config.plugins.events.event_item.time) }}
-	</time>
-	{% if page.header.event.end %}
-		| Ende
-		<time datetime="{{ page.header.event.end|date("c") }}">
-			{% if page.header.event.start|dateTranslate(config.plugins.events.event_item.date) != page.header.event.end|dateTranslate(config.plugins.events.event_item.date) %}
-				{{ page.header.event.end|dateTranslate(config.plugins.events.event_item.date) }}
-			{% endif %}
-			{{ page.header.event.end|dateTranslate(config.plugins.events.event_item.time) }}
-		{% elseif page.header.metadata.Duration %}
-			|
-			{{page.header.metadata.Duration}}
-		{% endif %}
-		{% if page.header.metadata.Language %}
-			<span>
-				|
-				{{ t("THEME_KUKOON.EVENT.LANGUAGE")|e }}:
-			</span>
-			{{page.header.metadata.Language}}
-		{% endif %}
-	</time>
-	{% if (config.plugins.events.event_meta.display_location) and (page.header.event.location is not empty) %}
-		<span class="location-pin">
-			| Location:</span>
-		{% if (page.header.event.coordinates) %}
-			<a href="https://maps.google.com/?q={{ page.header.event.location|replace({' ': '+'}) }}&ll={{ page.header.event.coordinates|replace({' ': ''})}}" target="_blank">{{ page.header.event.location }}</a>
+<div class="d-flex">
+	<div class="meta-info d-flex">
+		{% if page.header.event.doors_open != null and page.header.event.doors_open != page.header.event.start %}
+			<div>
+				{{ page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) }}
+			</div>
+			<div>
+				Einlass
+				<time datetime="{{ page.header.event.doors_open|date("c") }}">
+					{{ page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.time) }}
+				</time>
+			</div>
 		{% else %}
-			<a href="https://maps.google.com/?q={{ page.header.event.location|replace({' ': '+'}) }}" target="_blank">{{ page.header.event.location }}</a>
+			<div>
+				{{ page.header.event.start|dateTranslate(config.plugins.events.event_item.date) }}
+			</div>
 		{% endif %}
-	{% endif %}
-	{% include 'partials/event/ticket.html.twig' %}
-</div>
+		<div>
+			Beginn
+			<time datetime="{{ page.header.event.start|date("c") }}">
+				{% if page.header.event.doors_open and page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) != page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) %}
+					{{ page.header.event.start|dateTranslate(config.plugins.events.event_item.date) }}
+				{% endif %}
+				{{ page.header.event.start|dateTranslate(config.plugins.events.event_item.time) }}
+			</time>
+		</div>
+		{% if page.header.event.end %}
+			<div>
+				Ende
+				<time datetime="{{ page.header.event.end|date("c") }}">
+					{% if page.header.event.start|dateTranslate(config.plugins.events.event_item.date) != page.header.event.end|dateTranslate(config.plugins.events.event_item.date) %}
+						{{ page.header.event.end|dateTranslate(config.plugins.events.event_item.date) }}
+					{% endif %}
+					{{ page.header.event.end|dateTranslate(config.plugins.events.event_item.time) }}
+				{% endif %}
+			</time>
+			{% if (config.plugins.events.event_meta.display_location) and (page.header.event.location is not empty) %}
+				<div>
+					<span class="location-pin">
+						{{ t("THEME_KUKOON.EVENT.LOCATION")|e }}:</span>
+					{% if (page.header.event.coordinates) %}
+						<a href="https://maps.google.com/?q={{ page.header.event.location|replace({' ': '+'}) }}&ll={{ page.header.event.coordinates|replace({' ': ''})}}" target="_blank">{{ page.header.event.location }}</a>
+					{% else %}
+						<a href="https://maps.google.com/?q={{ page.header.event.location|replace({' ': '+'}) }}" target="_blank">{{ page.header.event.location }}</a>
+					{% endif %}
+				{% endif %}
+
+			</div>
+
+			{% include 'partials/event/ticket.html.twig' %}
+		</div>
+	</div>

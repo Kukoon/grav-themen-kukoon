@@ -1180,14 +1180,29 @@ ul.pagination {
 
 .event-title {
   margin-top: 0.6rem;
-  font-weight: 300;
-  text-transform: uppercase;
+  font-weight: 700;
   font-size: 2.6rem;
-  font-style: italic;
+  font-stretch: 50%;
+  letter-spacing: -0.08rem;
+  line-height: 2.5rem;
 }
 
 .meta-info {
-  padding: 0.04rem 0;
+  border-bottom: 1px solid #000;
+  margin-bottom: 12px;
+}
+
+.meta-info > div {
+  padding: 0 7px 0;
+}
+
+.meta-info > div + div {
+  border-left: 1px solid #000;
+}
+
+.meta-info-short > div + div {
+  border-top: 1px solid #000;
+  padding-top: 0.1rem;
 }
 
 .event-content {

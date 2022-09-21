@@ -1,0 +1,28 @@
+<div class="d-flex">
+	<div class="meta-info d-flex">
+
+		{% if page.header.metadata.Origin %}
+			<div>
+				{{page.header.metadata.Origin}}
+			</div>
+		{% endif %}
+		{% if page.header.metadata.Year %}
+			<div>
+				{{page.header.metadata.Year}}
+			</div>
+		{% endif %}
+		{% if page.header.metadata.Duration %}
+			<div>
+				{{page.header.metadata.Duration}}
+			</div>
+		{% endif %}
+		{% if page.header.metadata.Language %}
+			<div>
+				<span>
+					{{ t("THEME_KUKOON.EVENT.LANGUAGE")|e }}:
+				</span>
+				{{page.header.metadata.Language}}
+			</div>
+		{% endif %}
+	</div>
+</div>
