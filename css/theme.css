@@ -318,6 +318,10 @@ ol {
   font-style: italic;
 }
 
+.h6-subtitle > div + div {
+  border-left: 1px solid #000000;
+}
+
 form {
   /** Reset some defaults for Quark Theme **/
 }
@@ -1202,20 +1206,25 @@ ul.pagination {
 }
 
 .meta-info {
-  border-bottom: 1px solid #000;
-  margin-bottom: 12px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.meta-info > span {
+  border-bottom: 1px solid #000000;
 }
 
 .meta-info > div {
-  padding: 0 7px 0;
+  padding: 4px 7px 0;
+  border-bottom: 1px solid #000000;
 }
 
 .meta-info > div + div {
-  border-left: 1px solid #000;
+  border-left: 1px solid #000000;
 }
 
 .meta-info-short > div + div {
-  border-top: 1px solid #000;
+  border-top: 1px solid #000000;
   padding-top: 0.2rem;
 }
 

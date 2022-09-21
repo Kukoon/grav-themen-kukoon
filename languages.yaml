@@ -34,6 +34,7 @@ en:
       LANGUAGE: Language
       LOCATION: Location
       CATEGORIES: Categories
+      ORGANIZERS: Organizers
 
 
 de:
@@ -72,6 +73,7 @@ de:
       LANGUAGE: Sprache
       LOCATION: Ort
       CATEGORIES: Kategorien
+      ORGANIZERS: Veranstalter*innen
 
 
 es:

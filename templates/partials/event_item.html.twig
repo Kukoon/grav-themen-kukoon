@@ -9,11 +9,15 @@
 			</div>
 		{% endif %}
 		<div class="card-header">
-			{% set author = page.header.author %}
+			{% set authors = page.header.event.authors %}
 			<div class="card-title">
-				{% if author %}
-					<div class="h6-subtitle">
-						{{ author }}
+				{% if authors|length > 0 %}
+					<div class="h6-subtitle d-flex">
+						{% if authors|length > 1 %}
+							{{ authors|join(', ') }}
+						{% elseif authors|length > 0 %}
+							{{ authors|first }}
+						{% endif %}
 					</div>
 				{% endif %}
 				<div class="h5">
@@ -35,7 +39,6 @@
 					{% endif %}
 				{% endfor %}
 			{% endfor %}
-			{{ dump(supported) }}
 
 
 			<!-- Use first supported category -->
@@ -70,9 +73,6 @@
 				{% endif %}
 				{% include 'partials/event/ticket.html.twig' %}
 			</div>
-			{# <div class="chips">
-										{% include 'partials/event/categories.html.twig' %}
-									</div> #}
 		</div>
 	</div>
 </div>

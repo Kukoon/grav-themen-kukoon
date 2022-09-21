@@ -1,4 +1,4 @@
-<div class="d-flex">
+<div class="d-flex" style="margin-bottom: 12px">
 	<div class="meta-info d-flex">
 		{% if page.header.event.doors_open != null and page.header.event.doors_open != page.header.event.start %}
 			<div>
@@ -24,6 +24,8 @@
 				{{ page.header.event.start|dateTranslate(config.plugins.events.event_item.time) }}
 			</time>
 		</div>
+
+
 		{% if page.header.event.end %}
 			<div>
 				Ende
@@ -32,13 +34,11 @@
 						{{ page.header.event.end|dateTranslate(config.plugins.events.event_item.date) }}
 					{% endif %}
 					{{ page.header.event.end|dateTranslate(config.plugins.events.event_item.time) }}
-				{% endif %}
-			</time>
-		</div>
-
+				</time>
+			</div>
+		{% endif %}
 		{% if (config.plugins.events.event_meta.display_location) and (page.header.event.location is not empty) %}
 			<div>
-
 				<span class="location-pin">
 					{{ t("THEME_KUKOON.EVENT.LOCATION")|e }}:</span>
 				{% if (page.header.event.coordinates) %}
@@ -48,8 +48,6 @@
 				{% endif %}
 			</div>
 		{% endif %}
-
-
-		{% include 'partials/event/ticket.html.twig' %}
 	</div>
-</div>
+
+	{% include 'partials/event/ticket.html.twig' %}</div>

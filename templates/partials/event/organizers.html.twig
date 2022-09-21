@@ -1,0 +1,20 @@
+<div class="d-flex">
+	<div class="meta-info d-flex">
+		<span style="margin-top: 4px">{{ t("THEME_KUKOON.EVENT.ORGANIZERS")|e }}:</span>
+
+
+		{% set organizers = page.header.event.organizers %}
+		{% if organizers|length > 0 %}
+			{% for key,value in organizers %}
+
+				<div>
+					{% if value %}
+						<a href="{{ value }}">{{ key }}</a>
+					{% else %}
+						{{ key }}
+					{% endif %}
+				</div>
+			{% endfor %}
+		{% endif %}
+	</div>
+</div>

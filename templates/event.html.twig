@@ -5,17 +5,25 @@
 {% block content %}
 	<article class="event-article">
 		<header class="event-header">
-			{% set author = page.header.author %}
-			{% if author %}
-				<h2 class="h2-subtitle">{{ author }}</h2>
+			{% set authors = page.header.event.authors %}
+			{% if authors|length > 0 %}
+				<h2 class="h2-subtitle">
+					{% if authors|length > 1 %}
+						{{ authors|join(', ') }}
+					{% elseif authors|length > 0 %}
+						{{ authors|first }}
+					{% endif %}
+				</h2>
 			{% endif %}
 			<h1 class="event-title">{{ page.title }}</h1>
 			{% include 'partials/event/meta.html.twig' %}
+			{% include 'partials/event/meta-film.html.twig' %}
+
+
 		</header>
 		{% if 'Utopia Film Festival' in page.taxonomy.category %}
 			{% set youtube_id = page.header.trailer.youtube_id %}
 			{% if youtube_id %}
-				{{ dump(youtube_id) }}
 				<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom: 10px">
 					<iframe style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden" frameborder="0" type="text/html" src="https://www.youtube-nocookie.com/embed/{{ youtube_id }}?modestbranding=1&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" width="100%" height="100%" allowfullscreen allow="autoplay"></iframe>
 				</div>
@@ -49,10 +57,9 @@
 			</section>
 		{% endif %}
 	</article>
+	{% include 'partials/event/organizers.html.twig' %}
 	{% include 'partials/event/categories.html.twig' %}
 
-
-	<hr/>
 	<div class="sponsors"></br>
 	<p>
 		<small>
