@@ -150,6 +150,11 @@ h2,
   margin-bottom: 0.4rem;
 }
 
+h5,
+.h5 {
+  font-weight: 500;
+}
+
 h6,
 .h6 {
   font-weight: 400;
@@ -303,6 +308,12 @@ ol {
 
 .h2-subtitle {
   font-size: 1.6rem;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.h6-subtitle {
+  font-size: 0.8rem;
   font-weight: 400;
   font-style: italic;
 }
@@ -1170,6 +1181,9 @@ ul.pagination {
   margin-left: 0.08rem;
   margin-right: 0.08rem;
 }
+.event-item .card-title h5 {
+  margin-top: 0;
+}
 .event-item .chip {
   margin: 0;
 }
@@ -1202,7 +1216,7 @@ ul.pagination {
 
 .meta-info-short > div + div {
   border-top: 1px solid #000;
-  padding-top: 0.1rem;
+  padding-top: 0.2rem;
 }
 
 .event-content {

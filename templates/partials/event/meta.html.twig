@@ -34,19 +34,22 @@
 					{{ page.header.event.end|dateTranslate(config.plugins.events.event_item.time) }}
 				{% endif %}
 			</time>
-			{% if (config.plugins.events.event_meta.display_location) and (page.header.event.location is not empty) %}
-				<div>
-					<span class="location-pin">
-						{{ t("THEME_KUKOON.EVENT.LOCATION")|e }}:</span>
-					{% if (page.header.event.coordinates) %}
-						<a href="https://maps.google.com/?q={{ page.header.event.location|replace({' ': '+'}) }}&ll={{ page.header.event.coordinates|replace({' ': ''})}}" target="_blank">{{ page.header.event.location }}</a>
-					{% else %}
-						<a href="https://maps.google.com/?q={{ page.header.event.location|replace({' ': '+'}) }}" target="_blank">{{ page.header.event.location }}</a>
-					{% endif %}
-				{% endif %}
-
-			</div>
-
-			{% include 'partials/event/ticket.html.twig' %}
 		</div>
+
+		{% if (config.plugins.events.event_meta.display_location) and (page.header.event.location is not empty) %}
+			<div>
+
+				<span class="location-pin">
+					{{ t("THEME_KUKOON.EVENT.LOCATION")|e }}:</span>
+				{% if (page.header.event.coordinates) %}
+					<a href="https://maps.google.com/?q={{ page.header.event.location|replace({' ': '+'}) }}&ll={{ page.header.event.coordinates|replace({' ': ''})}}" target="_blank">{{ page.header.event.location }}</a>
+				{% else %}
+					<a href="https://maps.google.com/?q={{ page.header.event.location|replace({' ': '+'}) }}" target="_blank">{{ page.header.event.location }}</a>
+				{% endif %}
+			</div>
+		{% endif %}
+
+
+		{% include 'partials/event/ticket.html.twig' %}
 	</div>
+</div>

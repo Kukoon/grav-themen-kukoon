@@ -25,6 +25,11 @@ h2,
 	margin-bottom: 0.4rem;
 }
 
+h5,
+.h5 {
+	font-weight: 500;
+}
+
 h6,
 .h6 {
 	font-weight: 400;
@@ -214,6 +219,12 @@ ol {
 
 .h2-subtitle {
 	font-size: 1.6rem;
+	font-weight: 400;
+	font-style: italic
+}
+
+.h6-subtitle {
+	font-size: 0.8rem;
 	font-weight: 400;
 	font-style: italic
 }

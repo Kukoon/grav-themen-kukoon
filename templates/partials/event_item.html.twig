@@ -9,13 +9,19 @@
 			</div>
 		{% endif %}
 		<div class="card-header">
-			<div class="chips">
-				{% include 'partials/event/categories.html.twig' %}
-			</div>
-			<div class="card-title h5">
-				<a href="{{ page.url }}">{{ page.title}}</a>
+			{% set author = page.header.author %}
+			<div class="card-title">
+				{% if author %}
+					<div class="h6-subtitle">
+						{{ author }}
+					</div>
+				{% endif %}
+				<div class="h5">
+					<a href="{{ page.url }}">{{ page.title}}</a>
+				</div>
 			</div>
 		</div>
+
 		<!-- TODO: Generalize this -->
 		<div
 			class="event-card-body">
@@ -64,6 +70,9 @@
 				{% endif %}
 				{% include 'partials/event/ticket.html.twig' %}
 			</div>
+			{# <div class="chips">
+										{% include 'partials/event/categories.html.twig' %}
+									</div> #}
 		</div>
 	</div>
 </div>

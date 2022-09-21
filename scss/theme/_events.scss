@@ -24,6 +24,10 @@
 		margin-top: 6px;
 		margin-left: 0.08rem;
 		margin-right: 0.08rem;
+
+		h5 {
+			margin-top: 0;
+		}
 	}
 
 	.chip {
@@ -59,7 +63,7 @@
 
 .meta-info-short>div+div {
 	border-top: 1px solid #000;
-	padding-top: 0.1rem;
+	padding-top: 0.2rem;
 }
 
 .event-content {
