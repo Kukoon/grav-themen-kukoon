@@ -2344,6 +2344,13 @@ summary.accordion-header::-webkit-details-marker {
   transform: scale(0.75);
 }
 
+a:focus,
+a:hover,
+a:active,
+a.active > .chip {
+  text-decoration: unset !important;
+}
+
 .dropdown {
   display: inline-block;
   position: relative;
