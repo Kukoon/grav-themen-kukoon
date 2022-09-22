@@ -36,8 +36,13 @@
 			</section>
 		{% else %}
 			{% set image = page.media.images|first %}
+			{% set youtube_id = page.header.trailer.youtube_id %}
+			{% if youtube_id %}
+				<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom: 10px">
+					<iframe style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden" frameborder="0" type="text/html" src="https://www.youtube-nocookie.com/embed/{{ youtube_id }}?modestbranding=1&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" width="100%" height="100%" allowfullscreen allow="autoplay"></iframe>
+				</div>
 
-			{% if image != null %}
+			{% elseif image != null %}
 				<div class="title-img">
 					{{ image.cropResize(960,1700).html("Veranstaltung: "~page.title, page.title, "img-responsive") }}
 				</div>
