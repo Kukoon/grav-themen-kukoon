@@ -322,6 +322,10 @@ ol {
   border-left: 1px solid #000000;
 }
 
+.text-primary {
+  letter-spacing: -0.08rem;
+}
+
 form {
   /** Reset some defaults for Quark Theme **/
 }
