@@ -1,0 +1,20 @@
+.notices {
+	padding: 1px 20px 1px 20px;
+	margin: 15px 0;
+}
+
+.notices p {
+	font-size: 0.84rem;
+}
+
+.notices.yellow {
+	border-left: 1px solid #f0ad4e;
+	background: #fcf8f2;
+	color: #df8a13;
+}
+
+.notices.grey {
+	border-left: 1px solid #4B4B4B;
+	background: #F7F7F7;
+	color: #444444;
+}

@@ -6,32 +6,29 @@
 {% set show_pagination = header_var('show_pagination', [page, blog])|defined(true) %}
 
 {% block stylesheets %}
-    {% do assets.addCss('theme://css/bricklayer.css') %}
+	{% do assets.addCss('theme://css/bricklayer.css') %}
 {% endblock %}
 
 {% block javascripts %}
-    {% do assets.add('theme://js/bricklayer.min.js') %}
-    {% do assets.add('theme://js/scopedQuerySelectorShim.min.js') %}
+	{% do assets.add('theme://js/bricklayer.min.js') %}
+	{% do assets.add('theme://js/scopedQuerySelectorShim.min.js') %}
 {% endblock %}
 
 {% if show_breadcrumbs and config.plugins.breadcrumbs.enabled %}
-    {% include 'partials/breadcrumbs.html.twig' %}
+	{% include 'partials/breadcrumbs.html.twig' %}
 {% endif %}
 
-<h3 class="text-primary" style="font-weight: 600; font-style: italic">{{ page.title|upper }}</h3>
+<h2 class="h2-subtitle">{{ page.title }}</h2>
 
 {{ page.content }}
 
 <div class="bricklayer">
-{% for child in collection %}
-   {% include 'partials/blog-item.html.twig' with {blog: page, page: child} %}
-{% endfor %}
+	{% for child in collection %}
+		{% include 'partials/blog-item.html.twig' with {blog: page, page: child} %}
+	{% endfor %}
 </div>
 
 <script>
-//Bricklayer
+	// Bricklayer
 var bricklayer = new Bricklayer(document.querySelector('.bricklayer'))
 </script>
-
-
-

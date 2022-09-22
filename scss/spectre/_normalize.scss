@@ -81,15 +81,19 @@ main {
 hr {
 	box-sizing: content-box;
 	/* 1 */
-	height: 0;
+	height: 6px;
 	/* 1 */
 	overflow: visible;
 	/* 2 */
-	border-top: 4px dotted $border-color;
+	//border-top: 4px dotted $border-color;
+	//border-top: 4px dotted #8E8E8E;
+	border-top: 1px solid #B8B8B8;
 	border-bottom: 0;
 	border-right: 0;
 	border-left: 0;
-	width: 99%;
+	width: 100%;
+	margin-bottom: 3rem;
+	margin-top: 2rem;
 }
 
 /**

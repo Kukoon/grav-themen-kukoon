@@ -52,7 +52,8 @@
 
 .card-footer-festival {
 	padding-bottom: 0.6rem;
-	border-bottom: 4px dotted $border-color;
+	//border-bottom: 4px dotted $border-color;
+	border-top: 1px solid #4B4B4B;
 	display: flex;
 	flex-direction: column;
 }

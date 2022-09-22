@@ -72,15 +72,17 @@ main {
 hr {
   box-sizing: content-box;
   /* 1 */
-  height: 0;
+  height: 6px;
   /* 1 */
   overflow: visible;
   /* 2 */
-  border-top: 4px dotted #dadee4;
+  border-top: 1px solid #B8B8B8;
   border-bottom: 0;
   border-right: 0;
   border-left: 0;
-  width: 99%;
+  width: 100%;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
 }
 
 /**
@@ -2309,7 +2311,7 @@ summary.accordion-header::-webkit-details-marker {
 
 .card-footer-festival {
   padding-bottom: 0.6rem;
-  border-bottom: 4px dotted #dadee4;
+  border-top: 1px solid #4B4B4B;
   display: flex;
   flex-direction: column;
 }
@@ -2940,6 +2942,17 @@ a.text-secondary:focus, a.text-secondary:hover {
 }
 a.text-secondary:visited {
   color: #fafafe;
+}
+
+.text-tertiary {
+  color: #5755d9 !important;
+}
+
+a.text-tertiary:focus, a.text-tertiary:hover {
+  color: #4240d4;
+}
+a.text-tertiary:visited {
+  color: #6c6ade;
 }
 
 .text-gray {
