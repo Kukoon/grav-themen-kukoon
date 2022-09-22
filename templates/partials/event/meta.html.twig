@@ -5,7 +5,7 @@
 				{{ page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) }}
 			</div>
 			<div>
-				Einlass
+				{{ t("THEME_KUKOON.EVENT.DOORSOPEN")|e }}
 				<time datetime="{{ page.header.event.doors_open|date("c") }}">
 					{{ page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.time) }}
 				</time>
@@ -16,7 +16,7 @@
 			</div>
 		{% endif %}
 		<div>
-			Beginn
+			{{ t("THEME_KUKOON.EVENT.START")|e }}
 			<time datetime="{{ page.header.event.start|date("c") }}">
 				{% if page.header.event.doors_open and page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) != page.header.event.doors_open|dateTranslate(config.plugins.events.event_item.date) %}
 					{{ page.header.event.start|dateTranslate(config.plugins.events.event_item.date) }}
@@ -28,7 +28,7 @@
 
 		{% if page.header.event.end %}
 			<div>
-				Ende
+				{{ t("THEME_KUKOON.EVENT.END")|e }}
 				<time datetime="{{ page.header.event.end|date("c") }}">
 					{% if page.header.event.start|dateTranslate(config.plugins.events.event_item.date) != page.header.event.end|dateTranslate(config.plugins.events.event_item.date) %}
 						{{ page.header.event.end|dateTranslate(config.plugins.events.event_item.date) }}
