@@ -38,6 +38,8 @@ en:
       DOORSOPEN: Doors open
       START: Start
       END: End
+      FEE: Fee
+      NOFEE: Free entry
 
 
 de:
@@ -80,6 +82,8 @@ de:
       DOORSOPEN: Einlass
       START: Beginn
       END: Ende
+      FEE: Eintritt
+      NOFEE: Eintritt frei
 
 
 es:
