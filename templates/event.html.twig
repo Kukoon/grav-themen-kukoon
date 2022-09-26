@@ -44,7 +44,7 @@
 
 			{% elseif image != null %}
 				<div class="title-img">
-					{{ image.cropResize(960,1700).html("Veranstaltung: "~page.title, page.title, "img-responsive") }}
+					{{ image.cropResize(1000,1700).html("Veranstaltung: "~page.title, page.title, "img-responsive") }}
 				</div>
 				{% if image.meta.credit %}
 					<span class="credit" style="margin-top: -22px !important;">
