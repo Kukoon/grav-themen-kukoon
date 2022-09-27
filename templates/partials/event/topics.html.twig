@@ -1,0 +1,17 @@
+<div class="d-flex" style="margin-bottom: 12px">
+	<div class="meta-info d-flex">
+		{% set topics = page.taxonomy.topic %}
+		{% if page.taxonomy.topic %}
+			<span style="margin-top: 4px">{{ t("THEME_KUKOON.EVENT.TOPIC")|e }}:</span>
+			{% for topic in topics %}
+				<div>
+					<a href="{% if event %}{{ app.request.baseUrl }}/{{ event.parent.url|strtok('/') }}/events{% else %}{{ app.request.baseUrl }}/{{ page.parent.url|strtok('/') }}/events{% endif %}/all/topic{{ config.system.param_sep }}{{ topic }}">
+						<span>
+							{{ topic }}
+						</span>
+					</a>
+				</div>
+			{% endfor %}
+		{% endif %}
+	</div>
+</div>

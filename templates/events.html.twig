@@ -7,7 +7,7 @@
       },
       'order': {
         'by': 'date',
-        'dir': 'asc'
+        'dir': 'desc'
       },
 }) %}
 
@@ -20,10 +20,22 @@
 		{% include 'partials/breadcrumbs.html.twig' %}
 	{% endif %}
 
-	<h1 class="text-primary">
-		{{ page.title }}
-		<small>{{ uri.param('category') }}</small>
-	</h1>
+	{% if 'category' in uri.params %}
+		<h2 class="h2-subtitle">
+			{{ t("THEME_KUKOON.EVENT.CATEGORY")|e }}:
+		</h2>
+		<h1 class="text-primary mt-1">
+			{{ uri.param('category') }}
+
+		</h1>
+	{% elseif 'topic' in uri.params %}
+		<h2 class="h2-subtitle">
+			{{ t("THEME_KUKOON.EVENT.TOPIC")|e }}:
+		</h2>
+		<h1 class="text-primary mt-1">
+			{{ uri.param('topic') }}</h1>
+
+	{% endif %}
 
 	{{ page.content|raw }}
 

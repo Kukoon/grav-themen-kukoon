@@ -34,7 +34,9 @@ en:
       LANGUAGE: Language
       LOCATION: Location
       CATEGORIES: Categories
+      CATEGORY: Category
       ORGANIZERS: Organizers
+      TOPIC: Focus
       DOORSOPEN: Doors open
       START: Start
       END: End
@@ -78,7 +80,9 @@ de:
       LANGUAGE: Sprache
       LOCATION: Ort
       CATEGORIES: Kategorien
+      CATEGORY: Kategorie
       ORGANIZERS: Veranstalter*innen
+      TOPIC: Schwerpunkt
       DOORSOPEN: Einlass
       START: Beginn
       END: Ende
