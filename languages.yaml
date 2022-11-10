@@ -1,5 +1,7 @@
 en:
   THEME_KUKOON:
+    GENERAL:
+      HOME: Home
     BLOG:
       ITEM:
         CONTINUE_READING: Continue reading...
@@ -46,6 +48,8 @@ en:
 
 de:
   THEME_KUKOON:
+    GENERAL:
+      HOME: Startseite
     BLOG:
       ITEM:
         CONTINUE_READING: Weiterlesen...

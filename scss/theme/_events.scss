@@ -10,6 +10,25 @@
 			padding: $layout-spacing-lg;
 			padding-bottom: 0;
 
+			a.category-icon {
+				display: inline-block;
+				height: 48px !important;
+				margin-top: 2px;
+
+				img {
+					height: 100%;
+				}
+
+				&:focus,
+				&:hover,
+				a:active {
+					img {
+						background: #f1f1f1;
+						outline: solid 6px #f1f1f1;
+					}
+				}
+			}
+
 			&:last-child {
 				padding-bottom: $layout-spacing-lg;
 			}

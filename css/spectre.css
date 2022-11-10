@@ -465,7 +465,7 @@ a:focus {
 }
 a:focus, a:hover, a:active, a.active {
   color: #450401;
-  text-decoration: underline;
+  text-decoration: underline !important;
 }
 a:visited {
   color: #a90a03;
@@ -2346,13 +2346,6 @@ summary.accordion-header::-webkit-details-marker {
   transform: scale(0.75);
 }
 
-a:focus,
-a:hover,
-a:active,
-a.active > .chip {
-  text-decoration: unset !important;
-}
-
 .credit {
   position: relative;
 }
@@ -2409,12 +2402,10 @@ a.active > .chip {
 
 .menu {
   background: #fff;
-  border-radius: 0.1rem;
   list-style: none;
   margin: 0;
   min-width: 180px;
   padding: 0.4rem;
-  transform: translateY(0.2rem);
   z-index: 300;
 }
 .menu.menu-nav {
@@ -2943,14 +2934,14 @@ a.text-primary:visited {
 }
 
 .text-secondary {
-  color: #3d8487 !important;
+  color: #3a7d80 !important;
 }
 
 a.text-secondary:focus, a.text-secondary:hover {
-  color: #357376;
+  color: #326c6f;
 }
 a.text-secondary:visited {
-  color: #459599;
+  color: #428e92;
 }
 
 .text-tertiary {
@@ -3036,7 +3027,7 @@ a.text-error:visited {
 }
 
 .bg-secondary {
-  background: #428e92 !important;
+  background: #3a7d80 !important;
   color: #fff;
 }
 

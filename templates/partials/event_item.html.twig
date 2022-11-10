@@ -45,12 +45,14 @@
 			{% set category = supported|first %}
 
 			{% if 'Utopia Film Festival' in page.taxonomy.category %}
-				<a href="{% if event %}{{ event.parent.url|regex_replace(['/utopia-film-festival/'], [''])|rtrim('/') }}{% else %}{{ page.parent.url|regex_replace(['/utopia-film-festival/'], [''])|rtrim('/') }}{% endif %}/all/category{{ config.system.param_sep }}{{ category.label }}">
-					<img src="/user/themes/kukoon/images/category/{{ category.label }}.jpg" alt="{{ category.label }}" style="height: 48px; margin-top: 2px"/>
+				<a href="{% if event %}{{ event.parent.url|regex_replace(['/utopia-film-festival/'], [''])|rtrim('/') }}{% else %}{{ page.parent.url|regex_replace(['/utopia-film-festival/'], [''])|rtrim('/') }}{% endif %}/all/category{{ config.system.param_sep }}{{ category.label }}" class="category-icon">
+					<img src="/user/themes/kukoon/images/category/{{ category.label }}.png" alt="{{ t("THEME_KUKOON.EVENT.CATEGORY")|e }}: {{ category.label }}"/>
+
 				</a>
 			{% else %}
-				<a href="{% if event %}{{ event.parent.url|rtrim('/') }}{% else %}{{page.parent.url|rtrim('/')}}{% endif %}/all/category{{ config.system.param_sep }}{{ category.label }}">
-					<img src="/user/themes/kukoon/images/category/{{ category.label }}.jpg" alt="{{ category.label }}" style="height: 48px; margin-top: 2px"/>
+				<a href="{% if event %}{{ event.parent.url|rtrim('/') }}{% else %}{{page.parent.url|rtrim('/')}}{% endif %}/all/category{{ config.system.param_sep }}{{ category.label }}" class="category-icon">
+					<img src="/user/themes/kukoon/images/category/{{ category.label }}.png" alt="{{ t("THEME_KUKOON.EVENT.CATEGORY")|e }}: {{ category.label }}"/>
+
 				</a>
 			{% endif %}
 			<div class="meta-info-short float-right text-right">

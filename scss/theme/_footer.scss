@@ -1,47 +1,58 @@
-
-
 // Sticky Footer solution
 body.sticky-footer {
-  height: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+	height: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 
-  #page-wrapper {
-    flex: 1 0 auto;
-  }
+	#page-wrapper {
+		flex: 1 0 auto;
+	}
 }
 
 #footer {
-	color: #fff;
+	color: $light-color;
 	padding: 1rem $horiz-padding 2.5rem;
+
 	h1,
 	h2,
 	h3,
 	h4,
 	h5 {
-		color: #fff;
+		color: $light-color;
 	}
-	h4 {
+
+	h2 {
+		font-size: 1.2rem;
+		margin-bottom: 0.4rem;
 		margin-top: 1em;
 	}
+
 	th {
 		padding-top: 0;
 	}
+
 	.social {
 		margin: 0.2em 0;
-		
+
 		a {
-			text-decoration: none !important
+			text-decoration: none !important;
+
+			&:hover>span,
+			&:focus>span,
+			&:active>span {
+				color: $light-color;
+				text-decoration: underline !important;
+			}
 		}
 
-		a > img,
-		a > svg,
-	       	a > span {
+		a>img,
+		a>svg,
+		a>span {
 			display: inline-block;
 			margin: 0 0.2rem;
 			padding: 0;
-			color: #f0f0f0;
+			color: $light-color;
 			width: 1.2rem !important;
 			height: 1.2rem !important;
 			text-align: center;
@@ -50,35 +61,42 @@ body.sticky-footer {
 			&:first {
 				margin-right: 0px;
 			}
-			&:hover {
-				color: #fff;
-			}
 		}
-		a > span {
+
+		a>span {
 			width: unset !important;
 		}
-		a > svg {
+
+		a>svg {
 			fill: currentColor;
 			overflow: hidden;
 			vertical-align: middle;
 			padding: 0.1rem;
 		}
+
 	}
+
+	span.day {
+		display: inline-block;
+		width: 100px;
+	}
+
 	.subscribe-btn {
 		float: unset;
 		top: unset;
 
 		.btn {
-				@include button-primary;
-				background: unset;
-				border-color:#fff;
-				font-size: 0.8rem;
+			@include button-primary;
+			background: unset;
+			border-color: $light-color;
+			font-size: 0.8rem;
 
-				&:hover {
-					background: $primary-color;
-				}
+			&:hover {
+				background: $primary-color;
+			}
 		}
 	}
+
 	.language-selector {
 		float: unset;
 		top: unset;
@@ -87,7 +105,7 @@ body.sticky-footer {
 		.btn {
 			@include button-primary;
 			background: unset;
-			border-color:#fff;
+			border-color: $light-color;
 
 			&:hover {
 				background: $primary-color;
@@ -104,39 +122,43 @@ body.sticky-footer {
 		.buttons {
 			margin-top: 0.5rem
 		}
-		.buttons > .button {
+
+		.buttons>.button {
 			@include button-primary;
 			font-size: 0.8rem;
 			line-height: 1.5;
 			border-radius: 3px;
 			padding: 5px 10px;
 			background: unset;
-			color: #fff;
+			color: $light-color;
 			border: 1px solid;
-			border-color: #fff;
+			border-color: $light-color;
 
 			&:hover {
 				background: $primary-color;
 			}
 		}
 	}
-	#newsletter-form-de > div:first-child {
+
+	#newsletter-form-de>div:first-child {
 		margin-bottom: 0.5rem
 	}
-		#newsletter-form-en {
+
+	#newsletter-form-en {
 		.buttons {
 			margin-top: 0.5rem
 		}
-		.buttons > .button {
+
+		.buttons>.button {
 			@include button-primary;
 			font-size: 0.8rem;
 			line-height: 1.5;
 			border-radius: 3px;
 			padding: 5px 10px;
 			background: unset;
-			color: #fff;
+			color: $light-color;
 			border: 1px solid;
-			border-color: #fff;
+			border-color: $light-color;
 
 			&:hover {
 				background: $primary-color;
@@ -144,7 +166,7 @@ body.sticky-footer {
 		}
 	}
 
-#newsletter-form-en > div:first-child {
+	#newsletter-form-en>div:first-child {
 		margin-bottom: 0.5rem
 	}
 }
@@ -157,8 +179,10 @@ body.sticky-footer {
 	a {
 		color: $gray-color;
 
-		&:hover, &:focus, &.active {
-			color: $light-color !important;
+		&:hover,
+		&:focus,
+		&.active {
+			color: $light-color  !important;
 		}
 	}
 }

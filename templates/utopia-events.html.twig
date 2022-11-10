@@ -21,6 +21,10 @@
 
 			<h1 class="text-primary">
 				{{ page.title }}
+				{% if page.header.subtitle %}
+					<subtitle class="h2-subtitle" style="	margin-top: -0.6rem">{{ page.header.subtitle }}</subtitle>
+				{% endif %}
+
 			</h1>
 
 			{{ page.content|raw }}

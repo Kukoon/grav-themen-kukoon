@@ -7,56 +7,53 @@
 {% set show_pagination = header_var('show_pagination', [page, blog])|defined(true) %}
 
 {% block stylesheets %}
-    {% do assets.addCss('theme://css/bricklayer.css') %}
-    {{ parent() }}
+	{% do assets.addCss('theme://css/bricklayer.css') %}
+	{{ parent() }}
 {% endblock %}
 
 {% block javascripts %}
-    {{ parent() }}
-    {% do assets.add('theme://js/bricklayer.min.js') %}
-    {% do assets.add('theme://js/scopedQuerySelectorShim.min.js') %}
+	{{ parent() }}
+	{% do assets.add('theme://js/bricklayer.min.js') %}
+	{% do assets.add('theme://js/scopedQuerySelectorShim.min.js') %}
 {% endblock %}
 
 {% block body %}
-    <section id="body-wrapper" class="section blog-listing">
-        <section class="container {{ grid_size }}">
+	<section id="body-wrapper" class="section blog-listing">
+		<section class="container {{ grid_size }}">
 
-        {% if show_breadcrumbs and config.plugins.breadcrumbs.enabled %}
-            {% include 'partials/breadcrumbs.html.twig' %}
-        {% endif %}
+			{% if show_breadcrumbs and config.plugins.breadcrumbs.enabled %}
+				{% include 'partials/breadcrumbs.html.twig' %}
+			{% endif %}
 
-        <h1 class="text-primary">{{ page.title }}</h1>
+			<h1 class="text-primary">{{ page.title }}</h1>
 
-	{{ page.content }}
+			{{ page.content|raw }}
 
-        {% embed 'partials/layout.html.twig' with {blog: page} %}
-            {% block item %}
+			{% embed 'partials/layout.html.twig' with {blog: page} %}
+				{% block item %}
 
-                <div class="bricklayer">
-                {% for child in collection %}
-                    {% include 'partials/blog-list-item.html.twig' with {blog: page, page: child} %}
-                {% endfor %}
-                </div>
+					<div class="bricklayer">
+						{% for child in collection %}
+							{% include 'partials/blog-list-item.html.twig' with {blog: page, page: child} %}
+						{% endfor %}
+					</div>
 
-                {% if show_pagination and config.plugins.pagination.enabled and collection.params.pagination %}
-                    <div id="listing-footer">
-                        {% include 'partials/pagination.html.twig' with {base_url: page.url, pagination: collection.params.pagination} %}
-                    </div>
-                {% endif %}
+					{% if show_pagination and config.plugins.pagination.enabled and collection.params.pagination %}
+						<div id="listing-footer">
+							{% include 'partials/pagination.html.twig' with {base_url: page.url, pagination: collection.params.pagination} %}
+						</div>
+					{% endif %}
 
-            {% endblock %}
+				{% endblock %}
 
-            {% block sidebar %}
-                {% include 'partials/sidebar.html.twig' %}
-            {% endblock %}
-        {% endembed %}
-        </section>
-    </section>
-    <script>
-        //Bricklayer
-        var bricklayer = new Bricklayer(document.querySelector('.bricklayer'))
-    </script>
+				{% block sidebar %}
+					{% include 'partials/sidebar.html.twig' %}
+				{% endblock %}
+			{% endembed %}
+		</section>
+	</section>
+	<script>
+		// Bricklayer
+var bricklayer = new Bricklayer(document.querySelector('.bricklayer'))
+	</script>
 {% endblock %}
-
-
-

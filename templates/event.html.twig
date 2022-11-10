@@ -6,16 +6,19 @@
 	<article class="event-article">
 		<header class="event-header">
 			{% set authors = page.header.event.authors %}
-			{% if authors|length > 0 %}
-				<h2 class="h2-subtitle">
-					{% if authors|length > 1 %}
-						{{ authors|join(', ') }}
-					{% elseif authors|length > 0 %}
-						{{ authors|first }}
-					{% endif %}
-				</h2>
-			{% endif %}
-			<h1 class="event-title mt-1">{{ page.title }}</h1>
+			<h1 style="display: grid">
+				{% if authors|length > 0 %}
+					<span class="h2-subtitle topline">
+						{% if authors|length > 1 %}
+							{{ authors|join(', ') }}
+						{% elseif authors|length > 0 %}
+							{{ authors|first }}
+						{% endif %}
+					</span>
+				{% endif %}
+				<span class="event-title mt-1">{{ page.title }}</span>
+
+			</h1>
 			{% include 'partials/event/meta.html.twig' %}
 			{% include 'partials/event/meta-film.html.twig' %}
 
@@ -57,7 +60,8 @@
 				{% endif %}
 			{% endif %}
 			<section class="event">
-				<div class="event-content">{{ page.content }}</div>
+				<div class="event-content">{{ page.content|replace({'<em': "<i", "<strong" : "<b", '</em>' : '</i>', '</strong>':'</b>'}) }}</div>
+
 				{# {% include 'partials/event_meta.html.twig' with { 'page': page } %} #}
 			</section>
 		{% endif %}
@@ -83,5 +87,5 @@
 		<img src="{{ url('theme://images/sponsors/BKM_Logo_187x80.jpg') }}" alt="BKM Logo"/>
 		<img src="{{ url('theme://images/sponsors/GEMA_logo_76x80.jpg') }}" alt="GEMA Logo"/>
 	{% endif %}
-	<img src="{{ url('theme://images/sponsors/Logo-Senator-Kultur-237x40.png') }}" alt="Senator für Kultur Logo"/>
+	<img src="{{ url('theme://images/sponsors/Logo-Senator-Kultur-237x40.png') }}" alt="Der Senator für Kultur, Freie Hansestadt Bremen"/>
 </div>{% endblock %}

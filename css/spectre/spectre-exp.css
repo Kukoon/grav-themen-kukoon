@@ -100,7 +100,7 @@
   width: 1.4rem;
 }
 .calendar .calendar-date .date-item.date-today {
-  border-color: #e5e5f9;
+  border-color: #dddcf7;
   color: #5755d9;
 }
 .calendar .calendar-date .date-item:focus {
@@ -108,7 +108,7 @@
 }
 .calendar .calendar-date .date-item:focus, .calendar .calendar-date .date-item:hover {
   background: #fefeff;
-  border-color: #e5e5f9;
+  border-color: #dddcf7;
   color: #5755d9;
   text-decoration: none;
 }

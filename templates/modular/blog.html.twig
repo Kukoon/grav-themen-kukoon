@@ -20,7 +20,7 @@
 
 <h2 class="h2-subtitle">{{ page.title }}</h2>
 
-{{ page.content }}
+{{ page.content|raw }}
 
 <div class="bricklayer">
 	{% for child in collection %}

@@ -1,0 +1,15 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+	{% if page.title != 'OPEN CLOSED Festival 2022' %}
+		<h1 class="text-primary">
+			{{ page.title }}
+			{% if page.header.subtitle %}
+				<subtitle class="subtitle">{{ page.header.subtitle }}</subtitle>
+			{% endif %}
+		</h1>
+	{% endif %}
+	{% for module in page.collection() %}
+		{{ module.content|raw }}
+	{% endfor %}
+{% endblock %}

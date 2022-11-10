@@ -1,6 +1,7 @@
 // Spectre Overrides
 $primary-color: #770702 !default;
 $secondary-color: #428e92 !default;
+$secondary-color-dark: darken($secondary-color, 5%) !default;
 $dark-color: #000 !default;
 $light-color: #fff !default;
 $gray-color: #ddd !default;
@@ -28,7 +29,7 @@ $header-text-dark: $dark-color;
 $dropmenu-bg: $light-color;
 $dropmenu-hover-text: $primary-color;
 $dropmenu-horiz-padding: 20px;
-$dropmenu-vert-padding: 7px;
+$dropmenu-vert-padding: 29px;
 $dropmenu-child-padding: 10px;
 $dropmenu-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
 

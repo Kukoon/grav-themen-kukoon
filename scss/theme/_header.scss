@@ -1,90 +1,108 @@
 #header {
-  width: 100%;
-  height: $header-height-large;
-  border-bottom: 1px solid rgba($gray-color, 0.2);
-  @extend .default-animation;
+	width: 100%;
+	height: $header-height-large;
+	border-bottom: 1px solid rgba($gray-color, 0.2);
+	@extend .default-animation;
 
-  font-size: 0.7rem;
-  font-weight: 700;
+	font-size: 0.7rem;
+	font-weight: 700;
 
-  background: $primary-color;
-  color: $gray-color;
+	background: $primary-color;
+	color: $gray-color;
 	margin-bottom: 1rem;
 
-  a {
-    color: $gray-color;
-    &:hover, &:focus, &.active {
-      color: $light-color !important;
-    }
-  }
+	a {
+		color: $gray-color;
 
-  .navbar-section {
-    height: $header-height-large;
-    @extend .default-animation;
+		&:hover,
+		&:focus,
+		&.active {
+			color: $light-color  !important;
+		}
+	}
 
-    @include breakpoint(md) {
-      margin-right: 2rem;
-    }
-  }
+	.navbar-section {
+		height: $header-height-large;
+		@extend .default-animation;
 
-  .navbar-section.desktop-menu {
-    @include breakpoint(md) {
-      display: none;
-    }
-  }
-  .logo {
-    svg, img {
-      height: 128px;
-      display: inherit;
-      @extend .default-animation;
-      background: $primary-color;
-      position: absolute;
-      top: 0px;
-      padding: 10px;
-      border-radius: 0 0 8px 8px;
-      z-index: 99;
-    }
-  }
-  &.scrolled .logo {
-    svg, img {
-      height: 42px;
-      padding: 0px;
-      border-radius: 0px;
-     }
-  }
-  .dropmenu ul ul {
-	  background-color: $primary-color;
-  }
+		@include breakpoint(md) {
+			margin-right: 2rem;
+		}
+	}
 
-  // Fixed Header solution
-  .header-fixed & {
-    position: fixed;
-    top: 0;
-    z-index: 2;
-  }
+	.navbar-section.desktop-menu {
+		@include breakpoint(md) {
+			display: none;
+		}
+	}
+
+	.logo {
+
+		svg,
+		img {
+			height: 128px;
+			display: inherit;
+			@extend .default-animation;
+			background: $primary-color;
+			position: absolute;
+			top: 0px;
+			padding: 10px;
+			border-radius: 0 0 8px 8px;
+			z-index: 99;
+		}
+
+		a:focus>img,
+		a:hover>img,
+		a:active>img {
+			background: #000
+		}
+	}
+
+	&.scrolled .logo {
+
+		svg,
+		img {
+			height: 42px;
+			padding: 0px;
+			border-radius: 0px;
+		}
+	}
+
+	.dropmenu ul ul {
+		background-color: $primary-color;
+	}
+
+	// Fixed Header solution
+	.header-fixed & {
+		position: fixed;
+		top: 0;
+		z-index: 2;
+	}
 }
 
 // Animate Fixed Header
 body.header-fixed.header-animated {
-  #header.scrolled {
-    height: $header-height-small;
+	#header.scrolled {
+		height: $header-height-small;
 
-    .navbar-section {
-      height: $header-height-small;
-    }
+		.navbar-section {
+			height: $header-height-small;
+		}
 
-    .logo {
-      svg, img {
-        height: 28px;
-      }
-    }
+		.logo {
 
-    ~ .mobile-menu .button_container {
-      top: 0.5rem;
-    }
-  }
+			svg,
+			img {
+				height: 28px;
+			}
+		}
+
+		~.mobile-menu .button_container {
+			top: 0.5rem;
+		}
+	}
 }
 
 .login-status-wrapper {
-  white-space: nowrap;
+	white-space: nowrap;
 }

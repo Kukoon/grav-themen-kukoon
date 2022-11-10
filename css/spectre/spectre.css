@@ -465,7 +465,7 @@ a:focus {
 }
 a:focus, a:hover, a:active, a.active {
   color: #302ecd;
-  text-decoration: underline;
+  text-decoration: underline !important;
 }
 a:visited {
   color: #807fe2;
@@ -2346,13 +2346,6 @@ summary.accordion-header::-webkit-details-marker {
   transform: scale(0.75);
 }
 
-a:focus,
-a:hover,
-a:active,
-a.active > .chip {
-  text-decoration: unset !important;
-}
-
 .dropdown {
   display: inline-block;
   position: relative;
@@ -2400,12 +2393,10 @@ a.active > .chip {
 
 .menu {
   background: #fff;
-  border-radius: 0.1rem;
   list-style: none;
   margin: 0;
   min-width: 180px;
   padding: 0.4rem;
-  transform: translateY(0.2rem);
   z-index: 300;
 }
 .menu.menu-nav {
@@ -2934,14 +2925,14 @@ a.text-primary:visited {
 }
 
 .text-secondary {
-  color: #e5e5f9 !important;
+  color: #dddcf7 !important;
 }
 
 a.text-secondary:focus, a.text-secondary:hover {
-  color: #d1d0f4;
+  color: #c8c8f3;
 }
 a.text-secondary:visited {
-  color: #fafafe;
+  color: #f1f1fc;
 }
 
 .text-tertiary {
@@ -3027,7 +3018,7 @@ a.text-error:visited {
 }
 
 .bg-secondary {
-  background: #f1f1fc !important;
+  background: #dddcf7 !important;
 }
 
 .bg-dark {

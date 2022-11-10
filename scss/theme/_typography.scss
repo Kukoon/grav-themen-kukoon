@@ -217,6 +217,23 @@ ol {
 	flex-direction: row-reverse;
 }
 
+.topline {
+	margin-bottom: 0.4rem;
+	font-family: "Overpass", "Helvetica Neue", sans-serif;
+	color: $body-font-color;
+	line-height: 1.2;
+}
+
+.subtitle {
+	font-size: 1.6rem;
+	font-weight: 400;
+	font-style: italic;
+	margin-top: -0.6rem;
+	display: grid;
+	font-family: "Overpass", "Helvetica Neue", sans-serif;
+	color: $body-font-color;
+}
+
 .h2-subtitle {
 	font-size: 1.6rem;
 	font-weight: 400;

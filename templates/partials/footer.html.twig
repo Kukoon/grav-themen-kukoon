@@ -5,7 +5,7 @@
 				<div class="column col-lg-auto">
 					{% for footer in theme_var('opening-hours-en') %}
 						{% if footer.enabled %}
-							<h4>{{ t("THEME_KUKOON.FOOTER.OPENING_HOURS")|e }}</h4>
+							<h2>{{ t("THEME_KUKOON.FOOTER.OPENING_HOURS")|e }}</h2>
 							{{ footer.box | markdown }}
 						{% endif %}
 					{% endfor %}
@@ -14,7 +14,7 @@
 				<div class="column col-lg-auto">
 					{% for footer in theme_var('opening-hours-de') %}
 						{% if footer.enabled %}
-							<h4>{{ t("THEME_KUKOON.FOOTER.OPENING_HOURS")|e }}</h4>
+							<h2>{{ t("THEME_KUKOON.FOOTER.OPENING_HOURS")|e }}</h2>
 							{{ footer.box | markdown }}
 							{{ opening_hours_table() }}
 						{% endif %}
@@ -25,13 +25,13 @@
 				<div class="column col-lg-auto">
 					{% for footer in theme_var('contact') %}
 						{% if footer.enabled %}
-							<h4>{{ t("THEME_KUKOON.FOOTER.CONTACT")|e }}</h4>
+							<h2>{{ t("THEME_KUKOON.FOOTER.CONTACT")|e }}</h2>
 							{{ footer.box | markdown }}
 						{% endif %}
 					{% endfor %}
 					{% for footer in theme_var('support-en') %}
 						{% if footer.enabled %}
-							<h4>{{ t("THEME_KUKOON.FOOTER.SUPPORT")|e }}</h4>
+							<h2>{{ t("THEME_KUKOON.FOOTER.SUPPORT")|e }}</h2>
 							{{ footer.box | markdown }}
 						{% endif %}
 					{% endfor %}
@@ -40,13 +40,13 @@
 				<div class="column col-lg-auto">
 					{% for footer in theme_var('contact') %}
 						{% if footer.enabled %}
-							<h4>{{ t("THEME_KUKOON.FOOTER.CONTACT")|e }}</h4>
+							<h2>{{ t("THEME_KUKOON.FOOTER.CONTACT")|e }}</h2>
 							{{ footer.box | markdown }}
 						{% endif %}
 					{% endfor %}
 					{% for footer in theme_var('support-de') %}
 						{% if footer.enabled %}
-							<h4>{{ t("THEME_KUKOON.FOOTER.SUPPORT")|e }}</h4>
+							<h2>{{ t("THEME_KUKOON.FOOTER.SUPPORT")|e }}</h2>
 							{{ footer.box | markdown }}
 						{% endif %}
 					{% endfor %}
@@ -54,9 +54,9 @@
 			{% endif %}
 
 			<div class="column col-lg-auto">
-				<h4>{{ t("THEME_KUKOON.FOOTER.NEWSLETTER")|e }}</h4>
-					{% include 'partials/subscribe-btn.html.twig' %}
-				<h4>{{ t("THEME_KUKOON.FOOTER.SOCIAL")|e }}</h4>
+				<h2>{{ t("THEME_KUKOON.FOOTER.NEWSLETTER")|e }}</h2>
+				{% include 'partials/subscribe-btn.html.twig' %}
+				<h2>{{ t("THEME_KUKOON.FOOTER.SOCIAL")|e }}</h2>
 				<div class="social">
 					{% for item in theme_var('footers-social') %}
 						<a href="{{ item.url }}" target="_blank">
@@ -78,7 +78,7 @@
 					{% endif %}
 				{% endfor %}
 			</div>
-			<h4>{{ t("THEME_KUKOON.FOOTER.LANG")|e }}</h4>
+			<h2>{{ t("THEME_KUKOON.FOOTER.LANG")|e }}</h2>
 			{% include 'partials/language-selector.html.twig' %}
 		</div>
 	</div>

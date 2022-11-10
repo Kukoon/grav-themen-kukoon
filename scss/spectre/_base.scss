@@ -35,7 +35,7 @@ a {
 	&:active,
 	&.active {
 		color: $link-color-dark;
-		text-decoration: underline;
+		text-decoration: underline !important;
 	}
 
 	&:visited {

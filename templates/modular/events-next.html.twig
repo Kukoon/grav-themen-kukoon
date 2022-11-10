@@ -20,9 +20,10 @@
 	{% include 'partials/breadcrumbs.html.twig' %}
 {% endif %}
 
-<h3 class="h2-subtitle">{{ page.title }}</h3>
+<h2 class="h2-subtitle">{{ page.title }}</h2>
 
 {{ page.content|raw }}
+
 
 <div class="columns">
 	{% if collection|length != 0 %}
