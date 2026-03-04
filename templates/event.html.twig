@@ -2,6 +2,10 @@
 {% set show_breadcrumbs = header_var('show_breadcrumbs', [page, blog])|defined(true) %}
 {% set show_sidebar = header_var('show_sidebar', [page, blog])|defined(true)  %}
 
+{% set cutoff_date = '2026-03-05' %}
+{% set page_modified = page.modified|date('Y-m-d') %}
+{% set use_new_system = page_modified >= cutoff_date %}
+
 {% block content %}
 	<article class="event-article">
 		<header class="event-header">
@@ -38,7 +42,7 @@
 				{% include 'partials/event_meta.html.twig' with { 'page': page } %}
 			</section>
 		{% else %}
-			{% set image = page.media.images|first %}
+            {% set image =  page.media.images|first %}
 			{% set youtube_id = page.header.trailer.youtube_id %}
 			{% if youtube_id %}
 				<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom: 10px">
@@ -70,22 +74,86 @@
 	{% include 'partials/event/categories.html.twig' %}
 	{% include 'partials/event/topics.html.twig' %}
 
-	<div class="sponsors"></br>
-	<p>
-		<small>
-			<i>{{ t("THEME_KUKOON.EVENT.SUPPORTEDBY")|e }}:</i>
-		</small>
-	</p>
-	{% if 'im Park 🌳🎪' in page.taxonomy.category %}
-		<img src="{{ url('theme://images/sponsors/Logo_Beirat_Neustadt_154x40.png') }}" alt="Beirat Neustadt Logo"/>
+	{% if use_new_system %}
+		{% if page.header.predefined_sponsors or page.header.custom_sponsors %}
+			<div class="sponsors"><br/>
+				<p>
+					<small>
+						<i>{{ t("THEME_KUKOON.EVENT.SUPPORTEDBY")|e }}:</i>
+					</small>
+				</p>
+				
+				{% if 'senator_kultur' in page.header.predefined_sponsors %}
+					<img src="{{ url('theme://images/sponsors/Logo-Senator-Kultur-237x40.png') }}" alt="Der Senator für Kultur, Freie Hansestadt Bremen" style="max-height: 80px; height: auto;"/>
+				{% endif %}
+				{% if 'beirat_neustadt' in page.header.predefined_sponsors %}
+					<img src="{{ url('theme://images/sponsors/Logo_Beirat_Neustadt_154x40.png') }}" alt="Beirat Neustadt Logo" style="max-height: 80px; height: auto;"/>
+				{% endif %}
+				{% if 'initiative_musik' in page.header.predefined_sponsors %}
+					<img src="{{ url('theme://images/sponsors/IniMusik_logo_kurz_72dpi_color_102x60.jpg') }}" alt="Initiative Musik Logo" style="max-height: 80px; height: auto;"/>
+				{% endif %}
+				{% if 'neustart_kultur' in page.header.predefined_sponsors %}
+					<img src="{{ url('theme://images/sponsors/Neustart_Kultur_82x80.jpg') }}" alt="Neustart Kultur Logo" style="max-height: 80px; height: auto;"/>
+				{% endif %}
+				{% if 'bkm' in page.header.predefined_sponsors %}
+					<img src="{{ url('theme://images/sponsors/BKM_Logo_187x80.jpg') }}" alt="BKM Logo" style="max-height: 80px; height: auto;"/>
+				{% endif %}
+				{% if 'gema' in page.header.predefined_sponsors %}
+					<img src="{{ url('theme://images/sponsors/GEMA_logo_76x80.jpg') }}" alt="GEMA Logo" style="max-height: 80px; height: auto;"/>
+				{% endif %}
+				
+				{% if page.header.custom_sponsors %}
+					{% for sponsor in page.header.custom_sponsors %}
+						{% if sponsor.logo %}
+							{% set logo_filename = sponsor.logo is iterable ? sponsor.logo|first : sponsor.logo %}
+							{% if logo_filename %}
+								{% set logo_data = null %}
+								{% if page.header.sponsor_logos %}
+									{% for path, file_info in page.header.sponsor_logos %}
+										{% if file_info.name == logo_filename %}
+											{% set logo_data = file_info %}
+										{% endif %}
+									{% endfor %}
+								{% endif %}
+								
+								{% if logo_data %}
+									<img src="{{ url(logo_data.path) }}" alt="{{ sponsor.name|default('Sponsor') }}" style="max-height: 80px; height: auto;"/>
+								{% endif %}
+							{% endif %}
+						{% endif %}
+					{% endfor %}
+				{% endif %}
+			</div>
+		{% endif %}
+	{% else %}
+		{% if 
+			'im Park 🌳🎪' in page.taxonomy.category or 
+			'Open/Closed Festival' in page.taxonomy.category or 
+			'am Wall' in page.taxonomy.category or 
+			page.header.show_sponsor is not defined or
+			page.header.show_sponsor != 0
+		%}
+			<div class="sponsors"><br/>
+				<p>
+					<small>
+						<i>{{ t("THEME_KUKOON.EVENT.SUPPORTEDBY")|e }}:</i>
+					</small>
+				</p>
+				{% if 'im Park 🌳🎪' in page.taxonomy.category %}
+					<img src="{{ url('theme://images/sponsors/Logo_Beirat_Neustadt_154x40.png') }}" alt="Beirat Neustadt Logo"/>
+				{% endif %}
+				{% if 'Open/Closed Festival' in page.taxonomy.category %}
+					<img src="{{ url('theme://images/sponsors/IniMusik_logo_kurz_72dpi_color_102x60.jpg') }}" alt="Initiative Musik Logo"/>
+				{% endif %}
+				{% if 'am Wall' in page.taxonomy.category %}
+					<img src="{{ url('theme://images/sponsors/Neustart_Kultur_82x80.jpg') }}" alt="Neustart Kultur Logo"/>
+					<img src="{{ url('theme://images/sponsors/BKM_Logo_187x80.jpg') }}" alt="BKM Logo"/>
+					<img src="{{ url('theme://images/sponsors/GEMA_logo_76x80.jpg') }}" alt="GEMA Logo"/>
+				{% endif %}
+				{% if page.header.show_sponsor is not defined or page.header.show_sponsor != 0 %}
+					<img src="{{ url('theme://images/sponsors/Logo-Senator-Kultur-237x40.png') }}" alt="Der Senator für Kultur, Freie Hansestadt Bremen"/>
+				{% endif %}
+			</div>
+		{% endif %}
 	{% endif %}
-	{% if 'Open/Closed Festival' in page.taxonomy.category %}
-		<img src="{{ url('theme://images/sponsors/IniMusik_logo_kurz_72dpi_color_102x60.jpg') }}" alt="Initiative Musik Logo"/>
-	{% endif %}
-	{% if 'am Wall' in page.taxonomy.category %}
-		<img src="{{ url('theme://images/sponsors/Neustart_Kultur_82x80.jpg') }}" alt="Neustart Kutlur Logo"/>
-		<img src="{{ url('theme://images/sponsors/BKM_Logo_187x80.jpg') }}" alt="BKM Logo"/>
-		<img src="{{ url('theme://images/sponsors/GEMA_logo_76x80.jpg') }}" alt="GEMA Logo"/>
-	{% endif %}
-	<img src="{{ url('theme://images/sponsors/Logo-Senator-Kultur-237x40.png') }}" alt="Der Senator für Kultur, Freie Hansestadt Bremen"/>
-</div>{% endblock %}
+{% endblock %}

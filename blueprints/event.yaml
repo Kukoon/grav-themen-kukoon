@@ -1,0 +1,51 @@
+title: Event
+'@extends':
+    type: event
+    context: blueprints://pages
+
+form:
+  fields:
+    header.predefined_sponsors:
+      type: selectize
+      label: Predefined Sponsors
+      help: Select from existing sponsors
+      selectize:
+        options:
+          - text: "Senator für Kultur"
+            value: senator_kultur
+          - text: "Beirat Neustadt"
+            value: beirat_neustadt
+          - text: "Initiative Musik" 
+            value: initiative_musik
+          - text: "Neustart Kultur"
+            value: neustart_kultur
+          - text: "Der Beauftragte der Bundesregierung für Kultur und Medien"
+            value: bkm
+          - text: GEMA
+            value: gema
+      size: large
+      classes: fancy
+      validate:
+        type: commalist
+
+    header.sponsor_logos:
+      type: file
+      label: Upload sponsor logos
+      destination: 'page://images/sponsors'
+      multiple: true
+      accept:
+       - image/*
+
+    header.custom_sponsors:
+      type: list
+      label: Custom Sponsors
+      help: Add custom sponsors and select their logos
+      fields:
+        .name:
+          type: text
+          label: Sponsor Name
+        .logo:
+          type: filepicker
+          label: Logo Image
+          folder: 'page://images/sponsors'
+          multiple: false
